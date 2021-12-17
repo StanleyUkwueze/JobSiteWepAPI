@@ -1,0 +1,13 @@
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.csproj.AssemblyReference.cache
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Models.dll
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Models.pdb
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\Users\decag\source\repos\WebsiteAPI\Data\bin\Debug\netcoreapp3.1\Seeder\Seeder.json
