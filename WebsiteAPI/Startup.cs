@@ -20,6 +20,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 using Data.Seeder;
+using AutoMapper;
 
 namespace WebsiteAPI
 {
@@ -42,7 +43,7 @@ namespace WebsiteAPI
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<Seeder>();
-
+            services.AddAutoMapper();
             //Configure swagger
             services.AddSwaggerGen(config =>
             {
@@ -54,7 +55,7 @@ namespace WebsiteAPI
                 });
 
             });
-
+          
             services.AddScoped<IJwtService, JwtService>();
             services.AddAuthentication(options =>
             {

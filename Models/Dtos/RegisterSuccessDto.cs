@@ -4,7 +4,10 @@ using System.Text;
 
 namespace WebSiteAPI.Models.Dtos
 {
-    class SuccessDto
+  public class RegisterSuccessDto
     {
+        public Guid UserId { get; set; }
+        public string FullName { get; set; }
+        public string Email { get; set; }
     }
 }

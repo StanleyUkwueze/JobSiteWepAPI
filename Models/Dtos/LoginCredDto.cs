@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WebSiteAPI.Models.Dtos
 {
-    class LoginCredDto
+   public class LoginCredDto
     {
+        public string Id { get; set; }
+        public string token { get; set; }
     }
 }

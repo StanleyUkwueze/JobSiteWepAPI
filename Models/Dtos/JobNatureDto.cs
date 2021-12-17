@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WebSiteAPI.Models.Dtos
 {
-    class JobNatureDto
+   public class JobNatureDto
     {
+        public string Name { get; set; }
+        public int NewId { get; set; }
     }
 }

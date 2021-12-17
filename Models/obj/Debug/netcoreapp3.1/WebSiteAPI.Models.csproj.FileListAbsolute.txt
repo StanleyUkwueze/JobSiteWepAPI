@@ -1,0 +1,10 @@
+C:\Users\decag\source\repos\WebsiteAPI\Models\bin\Debug\netcoreapp3.1\WebSiteAPI.Models.deps.json
+C:\Users\decag\source\repos\WebsiteAPI\Models\bin\Debug\netcoreapp3.1\WebSiteAPI.Models.dll
+C:\Users\decag\source\repos\WebsiteAPI\Models\bin\Debug\netcoreapp3.1\WebSiteAPI.Models.pdb
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.csproj.AssemblyReference.cache
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.AssemblyInfoInputs.cache
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.AssemblyInfo.cs
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.csproj.CoreCompileInputs.cache
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.dll
+C:\Users\decag\source\repos\WebsiteAPI\Models\obj\Debug\netcoreapp3.1\WebSiteAPI.Models.pdb
