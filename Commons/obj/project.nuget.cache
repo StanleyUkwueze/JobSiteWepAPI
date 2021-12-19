@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5qlBKiaCrkT4EMKadn5KPuYV9vk2k/9CH+0wLHr3NaN3qYHIUsvu67hUDRZ1w1zINLEkzkhhBy9eF93rsbxjhQ==",
+  "dgSpecHash": "6CBvpeIZpEO5gXE3tA7QhQ6OcXyrfwaDd8uSiq6BZsZHv8cuGD5EElhqJdZIccvC8LylFs3Hg029DI30Vbd3yQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Commons\\Commons.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\decag\\.nuget\\packages\\automapper\\7.0.1\\automapper.7.0.1.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\4.0.1\\automapper.extensions.microsoft.dependencyinjection.4.0.1.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.18\\microsoft.aspnetcore.cryptography.internal.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.18\\microsoft.aspnetcore.cryptography.keyderivation.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
@@ -24,7 +26,8 @@
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.18\\microsoft.extensions.primitives.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
-    "C:\\Users\\decag\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+    "C:\\Users\\decag\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

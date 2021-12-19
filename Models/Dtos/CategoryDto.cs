@@ -4,7 +4,9 @@ using System.Text;
 
 namespace WebSiteAPI.Models.Dtos
 {
-    class CategoryDto
+   public class CategoryDto
     {
+        public string CategoryName { get; set; }
+       
     }
 }

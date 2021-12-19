@@ -52,6 +52,7 @@ namespace WebsiteAPI.Controllers
                 UserName = model.Email,
                 PhoneNumber = model.Phonenumber
             };
+
             var result = await _userMgr.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)

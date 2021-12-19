@@ -8,9 +8,9 @@ namespace WebSiteProject.Data
 {
     public interface ICRUDRepo
     {
-        public T Add<T>(T entity);
-        public T Edit<T>(T entity);
-        public T Delete<T>(T entity);
+        Task<bool> Add<T>(T entity);
+        Task<bool> Edit<T>(T entity);
+        Task<bool> Delete<T>(T entity);
 
     }
 }

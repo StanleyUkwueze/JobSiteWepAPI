@@ -21,6 +21,10 @@ using System.Threading.Tasks;
 using System.Text;
 using Data.Seeder;
 using AutoMapper;
+using WebSiteAPI.Services.Interfaces;
+using WebSiteAPI.Services.Implementations;
+using Data.Repositories.Interfaces;
+using WebSiteAPI.Data.Repositories.Implementation;
 
 namespace WebsiteAPI
 {
@@ -44,6 +48,16 @@ namespace WebsiteAPI
             services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
             services.AddTransient<Seeder>();
             services.AddAutoMapper();
+            services.AddScoped<IJobRepo, JobRepo>();
+            services.AddScoped<IJobService, JobService>();
+            services.AddScoped<ICategoryRepo, CategoryRepo>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IIndustryRepo, IndustryRepo>();
+            services.AddScoped<IIndustryService, IndustryService>();
+            services.AddScoped<IJobNature, JobNatureRepo>();
+            services.AddScoped<IJobNatureService, JobNatureservice>();
+            services.AddScoped<ILocationRepo, LocationRepo>();
+            services.AddScoped<ILocationservice, LocationService>();
             //Configure swagger
             services.AddSwaggerGen(config =>
             {

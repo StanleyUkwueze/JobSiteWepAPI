@@ -15,5 +15,6 @@ namespace WebSiteAPI.Models.Dtos
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        public bool Rememberme { get; set; }
     }
 }

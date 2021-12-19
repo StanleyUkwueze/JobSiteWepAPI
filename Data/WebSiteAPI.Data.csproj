@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\Implementation\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Seeder\Seeder.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
