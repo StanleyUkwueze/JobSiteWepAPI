@@ -12,8 +12,11 @@ namespace WebSiteAPI.Services.Interfaces
         public Task<ResponseDto<Job>> AddJob(JobDto model);
         public Task<Job> FindJobById(Guid Id);
         public Task<List<Job>> GetAllJobs();
-        public Task<List<Job>> GetJobByIndustryId(Industry industry);
+        public Task<bool> DeleteJobById(Guid Id);
+        public Task<List<Job>> GetJobByIndustryId(Guid Id);
+        public Task<List<Job>> GetJobByIndustryName(string IndName);
+        public Task<List<Job>> GetJobByCategoryName(string CatName);
         public Task<List<Job>> GetJobBySalary(decimal salary);
-        public Task<List<Job>> GetJobByLocation(LocationDto location);
+        public Task<List<Job>> GetJobByLocation(string location);
     }
 }

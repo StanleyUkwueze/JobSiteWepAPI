@@ -16,6 +16,7 @@ namespace WepSiteAPI.Commons.Helper
             CreateMap<AppUser, AddUserDto>();
             CreateMap<JobDto, Job>();
             CreateMap<CategoryDto, Category>();
+            CreateMap<AppUser, RegisterSuccessDto>();
         }
 
         

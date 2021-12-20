@@ -11,4 +11,3 @@ C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\WebSiteAPI.D
 C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\WebSiteAPI.Data.csproj.CoreCompileInputs.cache
 C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\WebSiteAPI.Data.dll
 C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\WebSiteAPI.Data.pdb
-C:\Users\decag\source\repos\WebsiteAPI\Data\obj\Debug\netcoreapp3.1\WebSiteAPI.Data.csproj.CopyComplete

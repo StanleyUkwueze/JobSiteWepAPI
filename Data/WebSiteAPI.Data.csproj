@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211219185207_updatemigration.cs" />
+    <Compile Remove="Migrations\20211219185207_updatemigration.Designer.cs" />
+    <Compile Remove="Migrations\20211219185249_updatemigrat.cs" />
+    <Compile Remove="Migrations\20211219185249_updatemigrat.Designer.cs" />
+    <Compile Remove="Migrations\20211219185738_updatemigration.cs" />
+    <Compile Remove="Migrations\20211219185738_updatemigration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.18" />

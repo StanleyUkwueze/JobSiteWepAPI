@@ -16,7 +16,9 @@ namespace WebSiteAPI.Models.Dtos
         public int LocationId { get; set; }
         public int JobNatureId { get; set; }
         public string Company { get; set; }
-        //public string Industry { get; set; }
-        //public string Category { get; set; }
+        public string IndustryName { get; set; }
+        public string CategoryName { get; set; }
+        public string LocationName { get; set; }
+        public string JobNatureName { get; set; }
     }
 }

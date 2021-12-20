@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebSiteAPI.Models.Dtos;
 using System.Linq;
+using System.Data.Common;
 
 namespace WebSiteAPI.Data.Repositories.Implementation
 {
@@ -28,7 +29,13 @@ namespace WebSiteAPI.Data.Repositories.Implementation
 
         public Task<bool> Delete<T>(T entity)
         {
-            _context.Remove(entity);
+            try
+            {
+                _context.Remove(entity);
+            }catch(DbException dbex)
+            {
+                throw new Exception(dbex.Message);
+            }
             return SaveChanges();
         }
 
@@ -51,16 +58,26 @@ namespace WebSiteAPI.Data.Repositories.Implementation
             return result;
         }
 
-        public async Task<List<Job>> GetJobByIndustryId(Industry industry)
+        public async Task<List<Job>> GetJobByCategoryName(string CatName)
         {
-            var res = await _context.Jobs.Where(x => x.IndustryId == industry.Id).ToListAsync();
+            return await _context.Jobs.Where(x => x.CategoryName == CatName).ToListAsync();
+        }
+
+        public async Task<List<Job>> GetJobByIndustryId( Guid Id)
+        {
+            var res = await _context.Jobs.Where(x => x.IndustryId == Id).ToListAsync();
             return res;
 
         }
 
-        public async Task<List<Job>> GetJobByLocation(LocationDto location)
+        public async Task<List<Job>> GetJobByIndustryName(string IndName)
         {
-            var result = await _context.Jobs.Where(x => x.LocationId == location.NewId).ToListAsync();
+            return await _context.Jobs.Where(x => x.IndustryName == IndName).ToListAsync();
+        }
+
+        public async Task<List<Job>> GetJobByLocation(string location)
+        {
+            var result = await _context.Jobs.Where(x => x.LocationName == location).ToListAsync();
             return result;
         }
 

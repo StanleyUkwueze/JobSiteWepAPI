@@ -35,6 +35,10 @@ namespace WebSiteAPI.Services.Implementations
                 IndustryId = model.IndustryId,
                 CategoryId = model.CategoryId,
                 Company = model.Company,
+                IndustryName = model.IndustryName,
+                CategoryName = model.CategoryName,
+                LocationName = model.LocationName,
+                JobNatureName = model.JobNatureName
                
             };
 
@@ -64,29 +68,47 @@ namespace WebSiteAPI.Services.Implementations
             return response;
         }
 
-        public Task<Job> FindJobById(Guid Id)
+        public async Task<bool> DeleteJobById(Guid Id)
         {
-            throw new NotImplementedException();
+            var jobTodelete = await _jobRepo.FindJobById(Id);
+            if (jobTodelete == null) return false;
+            return await _jobRepo.Delete(jobTodelete);
         }
 
-        public Task<List<Job>> GetAllJobs()
+        public async Task<Job> FindJobById(Guid Id)
         {
-            throw new NotImplementedException();
+         return await _jobRepo.FindJobById(Id);
+       
         }
 
-        public Task<List<Job>> GetJobByIndustryId(Industry industry)
+        public  async Task<List<Job>> GetAllJobs()
         {
-            throw new NotImplementedException();
+            return await _jobRepo.GetAllJobs();
         }
 
-        public Task<List<Job>> GetJobByLocation(LocationDto location)
+        public async Task<List<Job>> GetJobByCategoryName(string CatName)
         {
-            throw new NotImplementedException();
+            return await  _jobRepo.GetJobByCategoryName(CatName);
         }
 
-        public Task<List<Job>> GetJobBySalary(decimal salary)
+        public async Task<List<Job>> GetJobByIndustryId(Guid Id)
         {
-            throw new NotImplementedException();
+            return await _jobRepo.GetJobByIndustryId(Id);
+        }
+
+        public async Task<List<Job>> GetJobByIndustryName(string IndName)
+        {
+            return await _jobRepo.GetJobByIndustryName(IndName);
+        }
+
+        public async Task<List<Job>> GetJobByLocation(string location)
+        {
+            return await _jobRepo.GetJobByLocation(location);
+        }
+
+        public async Task<List<Job>> GetJobBySalary(decimal salary)
+        {
+            return await _jobRepo.GetJobBySalary(salary);
         }
     }
 }

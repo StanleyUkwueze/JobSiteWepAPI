@@ -21,8 +21,6 @@ namespace WebSiteAPI.Models.Dtos
         [Required]
         public string Phonenumber { get; set; }
 
-        public string Password { get; set; }
-
-        public bool IsActive { get; set; } = true;
+        public string Password { get; set; }  
     }
 }

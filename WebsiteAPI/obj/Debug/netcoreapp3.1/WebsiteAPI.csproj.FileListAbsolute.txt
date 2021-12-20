@@ -97,7 +97,6 @@ C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Micros
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.csproj.CopyComplete
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Core.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.Owin.dll

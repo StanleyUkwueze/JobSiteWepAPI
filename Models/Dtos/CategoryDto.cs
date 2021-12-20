@@ -7,6 +7,7 @@ namespace WebSiteAPI.Models.Dtos
    public class CategoryDto
     {
         public string CategoryName { get; set; }
-       
+        public Guid Id { get; set; }
+
     }
 }

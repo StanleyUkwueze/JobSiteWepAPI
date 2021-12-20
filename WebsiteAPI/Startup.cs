@@ -45,7 +45,10 @@ namespace WebsiteAPI
             services.AddControllers();
 
             services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<AppUser, IdentityRole>(options => {
+                options.SignIn.RequireConfirmedEmail = true;
+                //others....
+            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddTransient<Seeder>();
             services.AddAutoMapper();
             services.AddScoped<IJobRepo, JobRepo>();
@@ -58,6 +61,8 @@ namespace WebsiteAPI
             services.AddScoped<IJobNatureService, JobNatureservice>();
             services.AddScoped<ILocationRepo, LocationRepo>();
             services.AddScoped<ILocationservice, LocationService>();
+            services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<IAuthService, AuthService>();
             //Configure swagger
             services.AddSwaggerGen(config =>
             {

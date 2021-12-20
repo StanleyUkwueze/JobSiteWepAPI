@@ -12,6 +12,10 @@ namespace Models
         public decimal MinimumSalary { get; set; }
         public decimal MaximumSalary { get; set; }
         public string Company { get; set; }
+        public string IndustryName { get; set; }
+        public string CategoryName { get; set; }
+        public string LocationName { get; set; }
+        public string JobNatureName { get; set; }
         public Category Category { get; set; }
         public Guid CategoryId { get; set; }
         public Guid IndustryId { get; set; }
