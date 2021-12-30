@@ -1,0 +1,1 @@
+﻿Alter table Jobs drop CategoryName;

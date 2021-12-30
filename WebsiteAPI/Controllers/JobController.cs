@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Commons.Helper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebSiteAPI.Models.Dtos;
 using WebSiteAPI.Services.Interfaces;
+using WepSiteAPI.Commons;
 
 namespace WebsiteAPI.Controllers
 {
@@ -16,19 +19,12 @@ namespace WebsiteAPI.Controllers
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
+        private readonly IMapper _mapper;
 
-        public JobController(IJobService jobService)
+        public JobController(IJobService jobService, IMapper mapper)
         {
             _jobService = jobService;
-        }
-
-        [HttpPost("Add-Job")]
-        
-        public async Task<IActionResult> AddJob(JobDto model)
-        {
-          var res =  await _jobService.AddJob(model);
-            return Ok(res);
-           
+            _mapper = mapper;
         }
 
         [HttpGet("Find-Job-by-Id/{Id}")]
@@ -39,20 +35,38 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("Get-All-Jobs")]
-        public async Task<IActionResult> GetAllJobs()
+        public async Task<IActionResult> GetAllJobs(int pageNumber, int pageSize)
         {
-            var availableJobs = await _jobService.GetAllJobs();
-            return Ok(availableJobs);
+            var listOfJobsToReturn = new List<JobToReturnDto>();
+            var jobs = await _jobService.GetAllJobs();
+
+            if(jobs != null)
+            {
+                var pagedList = PagedList<Job>.Paginate(jobs, pageNumber, pageSize);
+                var result = pagedList.Data;
+
+                foreach(var job in result)
+                {
+                    listOfJobsToReturn.Add(_mapper.Map<JobToReturnDto>(job));
+                }
+                var res = new PaginatedDto<JobToReturnDto>
+                {
+                 MetaData = pagedList.MetaData,
+                 Data = listOfJobsToReturn
+                };
+
+                return Ok(Util.BuildResponse(true, "list of jobs", ModelState, res));
+            }
+            else
+            {
+                ModelState.AddModelError("NotFound", "No job record found");
+                var response = Util.BuildResponse<string>(false, "No job record found", ModelState, null);
+                return NotFound(response);
+            }
+         
         }
 
-        [HttpGet("Get-Jobs-By-Industry-Id/{Id}")]
-        public async Task<IActionResult> GetJobsByIndustryId(Guid Id)
-        {
-            var jobs = await _jobService.GetJobByIndustryId(Id);
-            return Ok(jobs);
-        }
-
-        [HttpGet("Get-Job-By-Industry-Name/{Ind-name}")]
+        [HttpGet("Get-Job-By-Industry-Name/Indname")]
         public async Task<IActionResult> GetJobByIndustryName(string IndName)
         {
             var job = await _jobService.GetJobByIndustryName(IndName);
@@ -62,27 +76,36 @@ namespace WebsiteAPI.Controllers
         [HttpGet("Get-Job-By-Category/{CatName}")]
         public async Task<IActionResult> GetJobByCategoryName(string CatName)
         {
-           var job = await _jobService.GetJobByCategoryName(CatName);
+            var job = await _jobService.GetJobByCategoryName(CatName);
             return Ok(job);
         }
 
+        [HttpGet("Get-Job-By-Nature/{jobnature}")]
+        public async Task<IActionResult> GetJobByNature(string jobnature)
+        {
+            var job = await _jobService.GetJobByJobNatureName(jobnature);
+            return Ok(job);
+        }
         [HttpGet("Get-Job-By-salary")]
         public async Task<IActionResult> GetJobBySalary(decimal salary)
         {
-            var job = await _jobService.GetJobBySalary(salary);
+           
+            var job = await _jobService.GetJobBySalary(salary); 
             return Ok(job);
         }
 
         [HttpGet("Get-Job-By-Location/{LocatioName}")]
         public async Task<IActionResult> GetJobByLocation(string location)
         {
-            var job = await _jobService.GetJobByLocation(location);
+            var job = await _jobService.GetJobByLocationName(location);
             return Ok(job);
         }
-        [HttpDelete("Delete-Job-By-Id/{Id}")]
-        public async Task<IActionResult> DeleteJobById(Guid Id)
+       
+        [HttpPut("Update-Job/Id")]
+        public async Task<IActionResult> UpdateJobById(Guid Id, JobToEditDto job)
         {
-            return Ok(await _jobService.DeleteJobById(Id));
+            var res = await _jobService.UpdateJobById(Id, job);
+            return Ok(res);
         }
 
     }

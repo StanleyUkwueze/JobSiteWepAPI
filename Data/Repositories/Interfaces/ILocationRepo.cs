@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,5 +11,6 @@ namespace Data.Repositories.Interfaces
     {
         Task<bool> SaveChanges();
         Task<int> RowCount();
+        public Task<Location> GetLocationByName(string locName);
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6CBvpeIZpEO5gXE3tA7QhQ6OcXyrfwaDd8uSiq6BZsZHv8cuGD5EElhqJdZIccvC8LylFs3Hg029DI30Vbd3yQ==",
+  "dgSpecHash": "263NdNmri5aKdi3MaeyAuvbqVUDcqZG0jJUqKB31BrdT3+sue2V03KCtJV3wnQjzlpjDgCjh2A6Gt9MQFbi/wQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Commons\\Commons.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,7 @@
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.18\\microsoft.aspnetcore.cryptography.internal.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.18\\microsoft.aspnetcore.cryptography.keyderivation.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
-    "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.13\\microsoft.aspnetcore.http.features.5.0.13.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.18\\microsoft.extensions.caching.abstractions.3.1.18.nupkg.sha512",
@@ -23,9 +23,11 @@
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.logging\\3.1.18\\microsoft.extensions.logging.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.18\\microsoft.extensions.logging.abstractions.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.options\\3.1.18\\microsoft.extensions.options.3.1.18.nupkg.sha512",
-    "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.18\\microsoft.extensions.primitives.3.1.18.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
   ],

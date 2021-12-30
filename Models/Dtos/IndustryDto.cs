@@ -7,6 +7,6 @@ namespace WebSiteAPI.Models.Dtos
    public class IndustryDto
     {
         public string IndustryName { get; set; }
-        public Guid Id { get; set; }
+       
     }
 }

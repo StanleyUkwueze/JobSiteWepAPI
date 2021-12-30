@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebSiteAPI.Data.Migrations
 {
-    public partial class newmigration : Migration
+    public partial class newMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,8 +85,7 @@ namespace WebSiteAPI.Data.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<string>(nullable: true),
                     DateUpdated = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    NewId = table.Column<int>(nullable: false)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,26 +99,11 @@ namespace WebSiteAPI.Data.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     DateCreated = table.Column<string>(nullable: true),
                     DateUpdated = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    NewId = table.Column<int>(nullable: false)
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Locations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Resumes",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
-                    Url = table.Column<string>(nullable: true),
-                    PublicId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Resumes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -229,6 +213,27 @@ namespace WebSiteAPI.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Resumes",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Url = table.Column<string>(nullable: true),
+                    PublicId = table.Column<string>(nullable: true),
+                    AppUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Resumes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Resumes_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Jobs",
                 columns: table => new
                 {
@@ -242,10 +247,8 @@ namespace WebSiteAPI.Data.Migrations
                     Company = table.Column<string>(nullable: true),
                     CategoryId = table.Column<Guid>(nullable: false),
                     IndustryId = table.Column<Guid>(nullable: false),
-                    LocationId = table.Column<int>(nullable: false),
-                    LocationId1 = table.Column<Guid>(nullable: true),
-                    JobNatureId1 = table.Column<Guid>(nullable: true),
-                    JobNatureId = table.Column<int>(nullable: false)
+                    LocationId = table.Column<Guid>(nullable: false),
+                    JobNatureId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -263,17 +266,17 @@ namespace WebSiteAPI.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Jobs_JobNatures_JobNatureId1",
-                        column: x => x.JobNatureId1,
+                        name: "FK_Jobs_JobNatures_JobNatureId",
+                        column: x => x.JobNatureId,
                         principalTable: "JobNatures",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Jobs_Locations_LocationId1",
-                        column: x => x.LocationId1,
+                        name: "FK_Jobs_Locations_LocationId",
+                        column: x => x.LocationId,
                         principalTable: "Locations",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -326,14 +329,19 @@ namespace WebSiteAPI.Data.Migrations
                 column: "IndustryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jobs_JobNatureId1",
+                name: "IX_Jobs_JobNatureId",
                 table: "Jobs",
-                column: "JobNatureId1");
+                column: "JobNatureId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jobs_LocationId1",
+                name: "IX_Jobs_LocationId",
                 table: "Jobs",
-                column: "LocationId1");
+                column: "LocationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Resumes_AppUserId",
+                table: "Resumes",
+                column: "AppUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -363,9 +371,6 @@ namespace WebSiteAPI.Data.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
@@ -376,6 +381,9 @@ namespace WebSiteAPI.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Locations");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
         }
     }
 }

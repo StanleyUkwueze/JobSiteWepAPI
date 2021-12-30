@@ -7,6 +7,6 @@ namespace WebSiteAPI.Models.Dtos
    public class JobNatureDto
     {
         public string Name { get; set; }
-        public int NewId { get; set; }
+       
     }
 }

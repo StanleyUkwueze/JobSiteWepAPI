@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Commons.Helper;
 using Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -120,5 +121,62 @@ namespace WebsiteAPI.Controllers
 
             return Ok(Util.BuildResponse<object>(true, "Email confirmation suceeded!", null, null));
         }
+
+        [HttpGet("Get-User/email")]
+        public async Task<IActionResult> GetUser(string email)
+        {
+            // map data from db to dto to reshape it and remove null fields
+            var UserToReturn = new UserToReturnDto();
+            //var user = await _userService.GetUser(email);
+            var user = await _userMgr.FindByEmailAsync(email);
+            if (user != null)
+            {
+                UserToReturn = new UserToReturnDto
+                {
+                    Id = user.Id,
+                    LastName = user.LastName,
+                    FirstName = user.FirstName,
+                    Email = user.Email
+                };
+
+                var res = Util.BuildResponse(true, "User details", null, UserToReturn);
+                return Ok(res);
+            }
+            else
+            {
+                ModelState.AddModelError("Notfound", $"There was no record found for user with email {user.Email}");
+                return NotFound(Util.BuildResponse<List<UserToReturnDto>>(false, "No result found!", ModelState, null));
+            }
+
+        }
+
+        [HttpGet("Get-Users")]
+        public IActionResult GetUsers(int pageNumber, int pageSize)
+        {
+            var listOfUsers = new List<UserToReturnDto>();
+            var users =  _userMgr.Users.ToList();
+            if(users != null)
+            {
+                var pagedList = PagedList<AppUser>.Paginate(users, pageNumber, pageSize);
+                var result = pagedList.Data;
+                foreach(var user in result)
+                {
+                    listOfUsers.Add(_mapper.Map<UserToReturnDto>(user));
+                }
+                var res = new PaginatedDto<UserToReturnDto>
+                {
+                    MetaData = pagedList.MetaData,
+                    Data = listOfUsers
+                };
+                return Ok(Util.BuildResponse(true, "list of users", ModelState, res));
+            }
+            else
+            {
+                ModelState.AddModelError("Notfound", "There was no record for users found!");
+                var res = Util.BuildResponse<List<UserToReturnDto>>(false, "No results found!", ModelState, null);
+                return NotFound(res);
+            }
+        }
+
     }
 }

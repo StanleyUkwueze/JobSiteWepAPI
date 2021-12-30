@@ -58,32 +58,38 @@ namespace WebSiteAPI.Data.Repositories.Implementation
             return result;
         }
 
-        public async Task<List<Job>> GetJobByCategoryName(string CatName)
+        public async Task<List<Job>> GetJobByCategoryId(Guid Id)
         {
-            return await _context.Jobs.Where(x => x.CategoryName == CatName).ToListAsync();
+            var something = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);//.Select(x => x.Jobs).ToListAsync();
+            var anothersomething = _context.Jobs.Where(x => x.CategoryId == Id);
+            //something.Jobs;
+            return await _context.Jobs.Where(x => x.CategoryId == Id).ToListAsync();
         }
 
+       
         public async Task<List<Job>> GetJobByIndustryId( Guid Id)
         {
+            var result = await _context.Industries.FirstOrDefaultAsync(x => x.Id == Id);
+            var result2 = _context.Jobs.Where(x => x.IndustryId == Id);
             var res = await _context.Jobs.Where(x => x.IndustryId == Id).ToListAsync();
             return res;
 
         }
 
-        public async Task<List<Job>> GetJobByIndustryName(string IndName)
+        public  async Task<List<Job>> GetJobByJobNatureId(Guid Id)
         {
-            return await _context.Jobs.Where(x => x.IndustryName == IndName).ToListAsync();
+            return await _context.Jobs.Where(x => x.LocationId == Id).ToListAsync();
         }
 
-        public async Task<List<Job>> GetJobByLocation(string location)
+        public async Task<List<Job>> GetJobByLocationId(Guid Id)
         {
-            var result = await _context.Jobs.Where(x => x.LocationName == location).ToListAsync();
-            return result;
+            return await _context.Jobs.Where(x => x.LocationId == Id).ToListAsync();
         }
 
         public async Task<List<Job>> GetJobBySalary(decimal salary)
         {
-            return await _context.Jobs.Where(x => x.MinimumSalary >= salary).ToListAsync();
+          return await _context.Jobs.Where(x => x.MinimumSalary >= salary).ToListAsync();
+           
         }
 
         public async Task<int> RowCount()

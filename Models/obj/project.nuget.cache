@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "NGoqDkkdatWTEm6rxm3awSsnfLzmc/KCDIUuKEyDAUZz0hS+ccCWxVCWFDmFK3cYYFoi1wEgd/7xo+wjw+L23Q==",
+  "dgSpecHash": "7ltiX+FKjghWttOkMZLk2UkE+o/ds3t30gMI6qriHWoZ0enn0oQlPMk+p5ekmjXYBvnR5yPuyvWWcqeNocZhRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.18\\microsoft.aspnetcore.cryptography.internal.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.18\\microsoft.aspnetcore.cryptography.keyderivation.3.1.18.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.13\\microsoft.aspnetcore.http.features.5.0.13.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.18\\microsoft.extensions.caching.abstractions.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.18\\microsoft.extensions.configuration.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.18\\microsoft.extensions.configuration.abstractions.3.1.18.nupkg.sha512",
@@ -17,7 +18,9 @@
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.logging\\3.1.18\\microsoft.extensions.logging.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.18\\microsoft.extensions.logging.abstractions.3.1.18.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.options\\3.1.18\\microsoft.extensions.options.3.1.18.nupkg.sha512",
-    "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.18\\microsoft.extensions.primitives.3.1.18.nupkg.sha512"
+    "C:\\Users\\decag\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

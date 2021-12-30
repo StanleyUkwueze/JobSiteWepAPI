@@ -104,3 +104,7 @@ C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Micros
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.Cookies.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.Owin.Security.OAuth.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Owin.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll

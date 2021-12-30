@@ -14,9 +14,13 @@ namespace WepSiteAPI.Commons.Helper
         public AutoMapperProfile()
         {
             CreateMap<AppUser, AddUserDto>();
-            CreateMap<JobDto, Job>();
+            CreateMap<Job, JobDto>();
+            CreateMap<Job, JobToReturnDto>();
             CreateMap<CategoryDto, Category>();
             CreateMap<AppUser, RegisterSuccessDto>();
+            CreateMap<ResumeUploadDto, Resume>();
+            CreateMap<JobToEditDto, Job>();
+            CreateMap<AppUser, UserToReturnDto>();
         }
 
         

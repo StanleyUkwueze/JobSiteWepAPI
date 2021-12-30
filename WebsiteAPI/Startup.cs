@@ -25,6 +25,8 @@ using WebSiteAPI.Services.Interfaces;
 using WebSiteAPI.Services.Implementations;
 using Data.Repositories.Interfaces;
 using WebSiteAPI.Data.Repositories.Implementation;
+using Commons.Helper;
+using WebSiteAPI.Data.Repositories.Interfaces;
 
 namespace WebsiteAPI
 {
@@ -50,6 +52,7 @@ namespace WebsiteAPI
                 //others....
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddTransient<Seeder>();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper();
             services.AddScoped<IJobRepo, JobRepo>();
             services.AddScoped<IJobService, JobService>();
@@ -63,6 +66,8 @@ namespace WebsiteAPI
             services.AddScoped<ILocationservice, LocationService>();
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IResumeRepo, ResumeRepo>();
+            services.AddScoped<IResumeService, ResumeService >();
             //Configure swagger
             services.AddSwaggerGen(config =>
             {

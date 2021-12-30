@@ -21,7 +21,7 @@ namespace WebSiteAPI.Services.Interfaces
             var jobNatureToAdd = new JobNature()
             {
                 Name = model.Name,
-                NewId = model.NewId
+             
             };
             var res = await _jobNatureRepo.Add(jobNatureToAdd);
             var response = new ResponseDto<JobNature>();

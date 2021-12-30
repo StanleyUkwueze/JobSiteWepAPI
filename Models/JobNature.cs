@@ -8,11 +8,12 @@ namespace Models
     {
         public string Name { get; set; }
         public List<Job> Jobs { get; set; }
-        public int  NewId { get; set; }
+      
 
         public JobNature()
         {
             Jobs = new List<Job>();
+            Id = Guid.NewGuid();
            
         }
     }

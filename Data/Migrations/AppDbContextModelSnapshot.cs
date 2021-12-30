@@ -278,9 +278,6 @@ namespace WebSiteAPI.Data.Migrations
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Company")
                         .HasColumnType("nvarchar(max)");
 
@@ -296,26 +293,11 @@ namespace WebSiteAPI.Data.Migrations
                     b.Property<Guid>("IndustryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("IndustryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("JobNatureId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("JobNatureId1")
+                    b.Property<Guid>("JobNatureId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("JobNatureName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LocationId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("LocationId1")
+                    b.Property<Guid>("LocationId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("LocationName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("MaximumSalary")
                         .HasColumnType("decimal(18,4)");
@@ -332,9 +314,9 @@ namespace WebSiteAPI.Data.Migrations
 
                     b.HasIndex("IndustryId");
 
-                    b.HasIndex("JobNatureId1");
+                    b.HasIndex("JobNatureId");
 
-                    b.HasIndex("LocationId1");
+                    b.HasIndex("LocationId");
 
                     b.ToTable("Jobs");
                 });
@@ -353,9 +335,6 @@ namespace WebSiteAPI.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NewId")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -377,9 +356,6 @@ namespace WebSiteAPI.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("NewId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
@@ -391,6 +367,9 @@ namespace WebSiteAPI.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("PublicId")
                         .HasColumnType("nvarchar(max)");
 
@@ -401,6 +380,8 @@ namespace WebSiteAPI.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
 
                     b.ToTable("Resumes");
                 });
@@ -472,11 +453,22 @@ namespace WebSiteAPI.Data.Migrations
 
                     b.HasOne("Models.JobNature", "JobNature")
                         .WithMany("Jobs")
-                        .HasForeignKey("JobNatureId1");
+                        .HasForeignKey("JobNatureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Models.Location", "Location")
                         .WithMany("Jobs")
-                        .HasForeignKey("LocationId1");
+                        .HasForeignKey("LocationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Models.Resume", b =>
+                {
+                    b.HasOne("Models.AppUser", "AppUser")
+                        .WithMany("Resumes")
+                        .HasForeignKey("AppUserId");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,12 +7,11 @@ namespace Models
    public class Location : BaseEntity
     {
         public string Name { get; set; }
-        public int NewId { get; set; }
         public List<Job> Jobs { get; set; }
         public Location()
         {
             Jobs = new List<Job>();
-           
+            Id = Guid.NewGuid();
         }
     }
 }

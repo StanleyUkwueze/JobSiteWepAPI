@@ -1,10 +1,12 @@
 ﻿using Data;
 using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace WebSiteAPI.Data.Repositories.Implementation
 {
@@ -43,5 +45,14 @@ namespace WebSiteAPI.Data.Repositories.Implementation
         {
             return await _context.SaveChangesAsync() > 0;
         }
+
+        public async Task<Industry> GetIndustryByName(string IndName)
+        {
+            var cat = await _context.Industries.FirstOrDefaultAsync(x => x.IndustryName == IndName);
+
+            return cat;
+        }
+
+      
     }
 }

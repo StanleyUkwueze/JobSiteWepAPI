@@ -13,12 +13,12 @@ namespace WebSiteAPI.Models.Dtos
         public decimal MaximumSalary { get; set; }
         public Guid IndustryId { get; set; }
         public Guid CategoryId { get; set; }
-        public int LocationId { get; set; }
-        public int JobNatureId { get; set; }
+        public Guid LocationId { get; set; }
+        public Guid JobNatureId { get; set; }
         public string Company { get; set; }
-        public string IndustryName { get; set; }
-        public string CategoryName { get; set; }
-        public string LocationName { get; set; }
-        public string JobNatureName { get; set; }
+        //public string IndustryName { get; set; }
+        //public string CategoryName { get; set; }
+        //public string LocationName { get; set; }
+        //public string JobNatureName { get; set; }
     }
 }

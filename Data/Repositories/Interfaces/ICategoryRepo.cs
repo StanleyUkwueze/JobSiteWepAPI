@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using WebSiteProject.Data;
 using System.Threading.Tasks;
+using Models;
 
 namespace Data.Repositories.Interfaces
 {
@@ -10,5 +11,6 @@ namespace Data.Repositories.Interfaces
     {
         Task<bool> SaveChanges();
         Task<int> RowCount();
+        public Task<Category> GetCategoryByName(string CatName);
     }
 }

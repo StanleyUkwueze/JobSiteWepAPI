@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "WebSiteAPI.Models/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.13",
           "Microsoft.Extensions.Identity.Stores": "3.1.18"
         },
         "runtime": {
@@ -33,9 +34,21 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.13": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "5.0.1",
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.1321.57202"
+          }
+        }
+      },
       "Microsoft.Extensions.Caching.Abstractions/3.1.18": {
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.18"
+          "Microsoft.Extensions.Primitives": "5.0.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll": {
@@ -57,7 +70,7 @@
       },
       "Microsoft.Extensions.Configuration.Abstractions/3.1.18": {
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.18"
+          "Microsoft.Extensions.Primitives": "5.0.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {
@@ -147,7 +160,7 @@
       "Microsoft.Extensions.Options/3.1.18": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.18",
-          "Microsoft.Extensions.Primitives": "3.1.18"
+          "Microsoft.Extensions.Primitives": "5.0.1"
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {
@@ -156,11 +169,30 @@
           }
         }
       },
-      "Microsoft.Extensions.Primitives/3.1.18": {
+      "Microsoft.Extensions.Primitives/5.0.1": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0"
+        },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
-            "assemblyVersion": "3.1.18.0",
-            "fileVersion": "3.100.1821.36403"
+          "lib/netcoreapp3.0/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.521.16609"
+          }
+        }
+      },
+      "System.IO.Pipelines/5.0.1": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.120.57516"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       }
@@ -185,6 +217,13 @@
       "sha512": "sha512-ThXPFfGrRdsaO8+VK1B/aLrYdf9gR/Wo/D85EqJv87S8y0GzSfJDbBHO5YyoFpjK1LHcUqE2jEGeY9Kvfbo50Q==",
       "path": "microsoft.aspnetcore.cryptography.keyderivation/3.1.18",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.3.1.18.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IrvvGsGxUTahPCLEI3CoezvsCLGhK9XgY8p2Pns+X/AHK+vskXYdxNlE7LBXeYOmpfEhqd0CFwK/BzjYxvhKdQ==",
+      "path": "microsoft.aspnetcore.http.features/5.0.13",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.13.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/3.1.18": {
       "type": "package",
@@ -263,12 +302,26 @@
       "path": "microsoft.extensions.options/3.1.18",
       "hashPath": "microsoft.extensions.options.3.1.18.nupkg.sha512"
     },
-    "Microsoft.Extensions.Primitives/3.1.18": {
+    "Microsoft.Extensions.Primitives/5.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-QFvxAK1seL0TeCeZcsld3X8/xPqH4xuMwqzbEkgQK8ChFwM9c8tUHK6JZG7H47UgjaucwV2y8G9IWlX051oOkw==",
-      "path": "microsoft.extensions.primitives/3.1.18",
-      "hashPath": "microsoft.extensions.primitives.3.1.18.nupkg.sha512"
+      "sha512": "sha512-5WPSmL4YeP7eW+Vc8XZ4DwjYWBAiSwDV9Hm63JJWcz1Ie3Xjv4KuJXzgCstj48LkLfVCYa7mLcx7y+q6yqVvtw==",
+      "path": "microsoft.extensions.primitives/5.0.1",
+      "hashPath": "microsoft.extensions.primitives.5.0.1.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qEePWsaq9LoEEIqhbGe6D5J8c9IqQOUuTzzV6wn1POlfdLkJliZY3OlB0j0f17uMWlqZYjH7txj+2YbyrIA8Yg==",
+      "path": "system.io.pipelines/5.0.1",
+      "hashPath": "system.io.pipelines.5.0.1.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
     }
   }
 }

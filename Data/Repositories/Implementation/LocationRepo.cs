@@ -1,6 +1,7 @@
 ﻿using Data;
 using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,6 +33,11 @@ namespace WebSiteAPI.Data.Repositories.Implementation
         {
             _context.Update(entity);
             return SaveChanges();
+        }
+
+        public async Task<Location> GetLocationByName(string locName)
+        {
+            return await _context.Locations.FirstOrDefaultAsync(x => x.Name == locName);
         }
 
         public async Task<int> RowCount()

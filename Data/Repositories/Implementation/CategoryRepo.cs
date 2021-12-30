@@ -1,6 +1,7 @@
 ﻿using Data;
 using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,6 +34,11 @@ namespace WebSiteAPI.Data.Repositories.Implementation
         {
             _context.Update(entity);
             return SaveChanges();
+        }
+
+        public async Task<Category> GetCategoryByName(string CatName)
+        {
+            return await _context.Categories.FirstOrDefaultAsync(x => x.CategoryName == CatName);
         }
 
         public async Task<int> RowCount()

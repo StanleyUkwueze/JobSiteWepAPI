@@ -23,7 +23,7 @@ namespace WebSiteAPI.Services.Implementations
             var locationToAdd = new Location()
             {
                 Name = model.Name,
-                NewId = model.NewId
+
             };
             var res = await _locationRepo.Add(locationToAdd);
             var response = new ResponseDto<Location>();

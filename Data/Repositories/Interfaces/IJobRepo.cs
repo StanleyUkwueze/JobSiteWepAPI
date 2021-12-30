@@ -15,10 +15,11 @@ namespace Data.Repositories.Interfaces
         public Task<Job> FindJobById(Guid Id);
         public Task<List<Job>> GetAllJobs();
         public Task<List<Job>> GetJobByIndustryId(Guid Id);
-        public Task<List<Job>> GetJobByIndustryName(string IndName);
-        public Task<List<Job>> GetJobByCategoryName(string CatName);
+       
+        public Task<List<Job>> GetJobByCategoryId(Guid Id);
         public Task<List<Job>> GetJobBySalary(decimal salary);
-        public Task<List<Job>> GetJobByLocation(string location);
-        
+        public Task<List<Job>> GetJobByLocationId(Guid Id);
+        public Task<List<Job>> GetJobByJobNatureId(Guid Id);
+
     }
 }

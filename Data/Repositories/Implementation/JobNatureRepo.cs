@@ -1,6 +1,7 @@
 ﻿using Data;
 using Data.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -52,6 +53,11 @@ namespace WebSiteAPI.Data.Repositories.Implementation
                 throw new Exception(dbexc.Message);
             }
             return SaveChanges();
+        }
+
+        public async Task<JobNature> GetJobNatureName(string JobNatureName)
+        {
+            return await _context.JobNatures.FirstOrDefaultAsync(x => x.Name == JobNatureName);
         }
 
         public async Task<int> RowCount()
