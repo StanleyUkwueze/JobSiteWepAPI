@@ -33,7 +33,7 @@ namespace WebsiteAPI.Controllers
             var res = await _jobService.FindJobById(Id);
             return Ok(res);
         }
-
+     
         [HttpGet("Get-All-Jobs")]
         public async Task<IActionResult> GetAllJobs(int pageNumber, int pageSize)
         {
@@ -94,19 +94,14 @@ namespace WebsiteAPI.Controllers
             return Ok(job);
         }
 
-        [HttpGet("Get-Job-By-Location/{LocatioName}")]
+        [HttpGet("Get-Job-By-Location/LocatioName")]
         public async Task<IActionResult> GetJobByLocation(string location)
         {
             var job = await _jobService.GetJobByLocationName(location);
             return Ok(job);
         }
        
-        [HttpPut("Update-Job/Id")]
-        public async Task<IActionResult> UpdateJobById(Guid Id, JobToEditDto job)
-        {
-            var res = await _jobService.UpdateJobById(Id, job);
-            return Ok(res);
-        }
+      
 
     }
 }

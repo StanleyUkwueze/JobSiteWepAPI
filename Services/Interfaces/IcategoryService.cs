@@ -9,6 +9,8 @@ namespace WebSiteAPI.Services.Interfaces
 {
    public interface ICategoryService
     {
-        public Task<ResponseDto<Category>> AddCategory(CategoryDto model);
+        Task<ResponseDto<Category>> AddCategory(CategoryDto model);
+        Task<ResponseDto<Category>> UpdateCategoryById(Guid Id, CategoryDto CatToUpdate);
+        Task<ResponseDto<Category>> DeleteCategoryById(Guid Id);
     }
 }

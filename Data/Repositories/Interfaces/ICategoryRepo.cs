@@ -12,5 +12,6 @@ namespace Data.Repositories.Interfaces
         Task<bool> SaveChanges();
         Task<int> RowCount();
         public Task<Category> GetCategoryByName(string CatName);
+        Task<Category> FindCategoryById(Guid Id);
     }
 }

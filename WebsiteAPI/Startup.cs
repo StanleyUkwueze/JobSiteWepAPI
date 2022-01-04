@@ -28,6 +28,7 @@ using WebSiteAPI.Data.Repositories.Implementation;
 using Commons.Helper;
 using WebSiteAPI.Data.Repositories.Interfaces;
 
+
 namespace WebsiteAPI
 {
     public class Startup
@@ -78,9 +79,33 @@ namespace WebsiteAPI
                     Description = "A Website for job seekers"
                 });
 
+                config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT authorization scheme",
+                    Name = "Authorization",
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Type = SecuritySchemeType.ApiKey,
+                    In = ParameterLocation.Header
+                });
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                         new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                          new string[] {}
+                    }
+                });
+
             });
           
-            services.AddScoped<IJwtService, JwtService>();
+            //services.AddScoped<IJwtService, JwtService>();
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -96,7 +121,17 @@ namespace WebsiteAPI
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Key"]))
                 };
             });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminRole", policy => policy.RequireRole("Admin"));
+                options.AddPolicy("ApplicantRole", policy => policy.RequireRole("Applicant"));
 
+                options.AddPolicy("AdminOrStaff", policy => policy.RequireAssertion(x =>
+
+                x.User.IsInRole("Admin") || x.User.IsInRole("Staff")
+
+                ));
+            });
 
 
             }

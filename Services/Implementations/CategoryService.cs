@@ -58,5 +58,64 @@ namespace WebSiteAPI.Services.Implementations
 
             return responseDto;
         }
+
+        public async Task<ResponseDto<Category>> DeleteCategoryById(Guid Id)
+        {
+            var response = new ResponseDto<Category>();
+            var catToDelete = await _categoryRepo.FindCategoryById(Id);
+            var res = await _categoryRepo.Delete(catToDelete);
+            if (res)
+            {
+                response = new ResponseDto<Category>
+                {
+                    IsSuccessful = true,
+                    Errors = { },
+                    Message = "Category deleted successfully",
+                    Data = null
+                };
+                return response;
+            }
+            else
+            {
+                response = new ResponseDto<Category>
+                {
+                    IsSuccessful = false,
+                    Errors = { },
+                    Message = "Category Failed to delete",
+                    Data = catToDelete
+                };
+                return response;
+            }
+        }
+
+        public async Task<ResponseDto<Category>> UpdateCategoryById(Guid Id, CategoryDto CatToUpdate)
+        {
+            var response = new ResponseDto<Category>();
+            var catToEdit = await _categoryRepo.FindCategoryById(Id);
+            if (catToEdit != null) catToEdit.CategoryName = CatToUpdate.CategoryName;
+            var res = await _categoryRepo.Edit(catToEdit);
+            if (res)
+            {
+                response = new ResponseDto<Category>
+                {
+                    IsSuccessful = true,
+                    Errors = { },
+                    Message = "Category Updated successfully",
+                    Data = catToEdit
+                };
+                return response;
+            }
+            else
+            {
+                response = new ResponseDto<Category>
+                {
+                    IsSuccessful = false,
+                    Errors = {},
+                    Message = "Category Failed to update",
+                    Data = null
+                };
+              return  response;
+            }
+        }
     }
 }

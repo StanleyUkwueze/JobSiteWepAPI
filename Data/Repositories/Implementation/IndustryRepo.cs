@@ -53,6 +53,10 @@ namespace WebSiteAPI.Data.Repositories.Implementation
             return cat;
         }
 
-      
+        public async Task<Industry> FindIndustryById(Guid Id)
+        {
+            var res = await _context.Industries.FirstOrDefaultAsync(x => x.Id == Id);
+            return res;
+        }
     }
 }

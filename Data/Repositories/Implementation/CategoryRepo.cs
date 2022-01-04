@@ -36,6 +36,12 @@ namespace WebSiteAPI.Data.Repositories.Implementation
             return SaveChanges();
         }
 
+        public async Task<Category> FindCategoryById(Guid Id)
+        {
+            var res = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+            return res;
+        }
+
         public async Task<Category> GetCategoryByName(string CatName)
         {
             return await _context.Categories.FirstOrDefaultAsync(x => x.CategoryName == CatName);

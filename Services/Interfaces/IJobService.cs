@@ -16,8 +16,8 @@ namespace WebSiteAPI.Services.Interfaces
         public Task<Job> UpdateJobById(Guid Id, JobToEditDto job);
         public Task<List<JobToReturnDto>> GetJobByIndustryName(string IndName);
         public Task<List<JobToReturnDto>> GetJobByCategoryName(string CatName);
-        public Task<List<Job>> GetJobBySalary(decimal salary);
-        public Task<List<Job>> GetJobByJobNatureName(string JobNature);
-        public Task<List<Job>> GetJobByLocationName(string locName);
+        public Task<List<JobToReturnDto>> GetJobBySalary(decimal salary);
+        public Task<List<JobToReturnDto>> GetJobByJobNatureName(string JobNature);
+        public Task<List<JobToReturnDto>> GetJobByLocationName(string locName);
     }
 }

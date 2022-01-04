@@ -12,5 +12,6 @@ namespace Data.Repositories.Interfaces
         Task<bool> SaveChanges();
         Task<int> RowCount();
         public Task<Industry> GetIndustryByName(string IndName);
+        Task<Industry> FindIndustryById(Guid Id);
     }
 }

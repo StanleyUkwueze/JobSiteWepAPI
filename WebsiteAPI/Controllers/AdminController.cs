@@ -12,7 +12,8 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
+    //[Authorize]
     public class AdminController : ControllerBase
     {
         private readonly IJobService _jobService;
@@ -56,6 +57,14 @@ namespace WebsiteAPI.Controllers
             return Ok(result);
         }
 
-       
+  //     "title": "Driver",
+  //"description": "Personal Drver",
+  //"minimumSalary": 100000,
+  //"maximumSalary": 300000,
+  //"industryId": "abb2e9f8-6b83-4305-8c5a-78197e0e6d04",
+  //"categoryId": "a58606fc-145f-48bc-91a8-66706c4d9b21",
+  //"locationId": "0479ab70-b895-442c-9d94-cb5421913c68",
+  //"jobNatureId": "715c5d70-2913-4b5c-9e7c-9305a269caa1",
+  //"company": "Private"
     }
 }

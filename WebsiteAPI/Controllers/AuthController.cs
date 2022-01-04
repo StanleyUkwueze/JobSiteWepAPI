@@ -82,5 +82,19 @@ namespace WebsiteAPI.Controllers
 
             return Ok(Util.BuildResponse<object>(true, "Email confirmation suceeded!", null, null));
         }
+
+        [HttpGet("Gen-JWT")]
+        public  IActionResult GenerateToken()
+        {
+            var user = new AppUser
+            {
+               LastName = "stanley",
+               FirstName = "Jekwu"
+              
+            };
+            var roles = new List<string> { "Admin", "Applicant" };
+            var token = _jwtService.GenerateJWTToken(user, roles);
+            return Ok(token);
+        }
     }
 }

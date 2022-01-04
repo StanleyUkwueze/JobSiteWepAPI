@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Services.JWTServices
 {
@@ -47,8 +48,8 @@ namespace Services.JWTServices
 
             var SecurityTokenHandler = new JwtSecurityTokenHandler();
 
-            var token = SecurityTokenHandler.CreateToken(securityTokenDescriptor);
-            return SecurityTokenHandler.WriteToken(token);
+            var token =  SecurityTokenHandler.CreateToken(securityTokenDescriptor);
+            return  SecurityTokenHandler.WriteToken(token);
         }
     }
 }

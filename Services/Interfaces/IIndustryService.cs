@@ -9,7 +9,8 @@ namespace WebSiteAPI.Services.Interfaces
 {
    public interface IIndustryService
     {
-        public Task<ResponseDto<Industry>> Addindustry(IndustryDto model);
-       
+        Task<ResponseDto<Industry>> Addindustry(IndustryDto model);
+        Task<ResponseDto<Industry>> UpdateIndustryById(Guid Id, IndustryDto model);
+        Task<ResponseDto<Industry>> DeleteIndustryById(Guid Id);
     }
 }

@@ -119,45 +119,112 @@ namespace WebSiteAPI.Services.Implementations
                 {
                     var res = await _industryRepo.GetIndustryByName(IndName);
                     if(res != null) {
-                        var jobs = await _jobRepo.GetJobByIndustryId(res.Id);
-                        var jobToReturn = new JobToReturnDto();
+                        var jobs = await _jobRepo.GetJobByIndustryId(res.Id);                      
                         foreach (var job in jobs)
                         {
-                            var result = _mapper.Map<JobToReturnDto>(job);
-                            
-                           
+                            var result = _mapper.Map<JobToReturnDto>(job); 
                             listOfJobs.Add(result);
                         }
-                    }
-                    
-                    
+                    }     
                 }catch(DbException dbex)
                 {
                     throw new Exception(dbex.Message);
                 }
-               
+                return listOfJobs;
+            }
+            return null;
+        }
+
+        public async Task<List<JobToReturnDto>> GetJobBySalary(decimal salary)
+        {
+            var count = await _jobRepo.RowCount();
+            var listOfJobs = new List<JobToReturnDto>();
+            if (count > 0)
+            {
+                try
+                {
+                    var res = await _jobRepo.GetJobBySalary(salary);
+                    if (res != null)
+                    {
+                        foreach (var job in res)
+                        {
+                            var result = _mapper.Map<JobToReturnDto>(job);
+                            listOfJobs.Add(result);
+                        }
+                    }
+                }
+                catch (DbException dbex)
+                {
+                    throw new Exception(dbex.Message);
+                }
 
                 return listOfJobs;
             }
             return null;
         }
 
-        public async Task<List<Job>> GetJobBySalary(decimal salary)
+        public async Task<List<JobToReturnDto>> GetJobByLocationName(string locName)
         {
-            return await _jobRepo.GetJobBySalary(salary);
-        }
+            var count = await _locationRepo.RowCount();
+            var listOfJobs = new List<JobToReturnDto>();
+            if(count > 0)
+            {
+                try
+                {
+                    var res = await _locationRepo.GetLocationByName(locName);
+                  if(res != null)
+                    {
+                        var jobs = await _jobRepo.GetJobByLocationId(res.Id);
+                        var jobToReturn = new JobToReturnDto();
+                        foreach(var job in jobs)
+                        {
+                            var result = _mapper.Map<JobToReturnDto>(job);
+                            listOfJobs.Add(result);
+                        }
+                    }
+                }
+                catch(DbException dbex)
+                {
+                    throw new Exception(dbex.Message);
+                }
 
-        public async Task<List<Job>> GetJobByLocationName(string locName)
-        {
-            var res = await _locationRepo.GetLocationByName(locName);
+                return listOfJobs;
+            }
+            return null;
+           
       
-            return await _jobRepo.GetJobByLocationId(res.Id);
+           
         }
 
-        public async Task<List<Job>> GetJobByJobNatureName(string JobNature)
+        public async Task<List<JobToReturnDto>> GetJobByJobNatureName(string JobNature)
         {
-            var res = await _jobNature.GetJobNatureName(JobNature);
-            return await _jobRepo.GetJobByJobNatureId(res.Id);
+            var count = await _jobNature.RowCount();
+            var listOfJobs = new List<JobToReturnDto>();
+            if(count > 0)
+            {
+                try
+                {
+                    var res = await _jobNature.GetJobNatureName(JobNature);
+                    if(res != null)
+                    {
+                        var jobs = await _jobRepo.GetJobByJobNatureId(res.Id);
+                        foreach(var job in jobs)
+                        {
+                            var result = _mapper.Map<JobToReturnDto>(job);
+
+                            listOfJobs.Add(result);
+                        }
+                    }
+                }catch(DbException dbexc)
+                {
+                    throw new Exception(dbexc.Message);
+                }
+
+                return listOfJobs;
+            }
+            return null;
+           
+            
         }
 
         public async Task<Job> UpdateJobById(Guid Id, JobToEditDto job)
