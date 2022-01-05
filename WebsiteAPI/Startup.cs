@@ -27,7 +27,7 @@ using Data.Repositories.Interfaces;
 using WebSiteAPI.Data.Repositories.Implementation;
 using Commons.Helper;
 using WebSiteAPI.Data.Repositories.Interfaces;
-
+using NETCore.MailKit.Core;
 
 namespace WebsiteAPI
 {
@@ -69,6 +69,12 @@ namespace WebsiteAPI
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IResumeRepo, ResumeRepo>();
             services.AddScoped<IResumeService, ResumeService >();
+            services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IJobApplicationRepo, JobApplicationRepo>();
+            services.AddScoped<IApplicationservice, ApplicationService>();
+
+            services.AddSingleton(Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>());
+            
             //Configure swagger
             services.AddSwaggerGen(config =>
             {

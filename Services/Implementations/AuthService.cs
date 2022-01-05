@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Models;
+using NETCore.MailKit.Core;
 using Services.JWTServices;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,14 @@ namespace WebSiteAPI.Services.Implementations
         private readonly UserManager<AppUser> _userMgr;
         private readonly SignInManager<AppUser> _signMgr;
         private readonly IJwtService _jwtService;
+        private readonly IEmailService _emailService;
 
         public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtService jwtService)
         {
             _userMgr = userManager;
             _signMgr = signInManager;
             _jwtService = jwtService;
+        
         }
         public async Task<LoginCredDto> Login(string email, string password, bool rememberMe)
         {
@@ -40,5 +43,7 @@ namespace WebSiteAPI.Services.Implementations
 
             return new LoginCredDto { Status = true, Id = user.Id, token = token };
         }
+
+       
     }
 }

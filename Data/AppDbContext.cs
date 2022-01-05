@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Models;
+using WebSiteAPI.Models;
 
 namespace Data
 {
@@ -22,6 +23,7 @@ namespace Data
         public DbSet<Location> Locations { get; set; }
         public DbSet<Job> Jobs { get; set; }
         public DbSet<Resume> Resumes { get; set; }
+        public DbSet<JobApplication> JobApplications { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

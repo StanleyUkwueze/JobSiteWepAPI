@@ -60,9 +60,9 @@ namespace WebSiteAPI.Data.Repositories.Implementation
 
         public async Task<List<Job>> GetJobByCategoryId(Guid Id)
         {
-            var something = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);//.Select(x => x.Jobs).ToListAsync();
-            var anothersomething = _context.Jobs.Where(x => x.CategoryId == Id);
-            //something.Jobs;
+            var something = await _context.Categories.FirstOrDefaultAsync(x => x.Id == Id);
+           // var anothersomething = _context.Jobs.Where(x => x.CategoryId == Id);
+         
             return await _context.Jobs.Where(x => x.CategoryId == Id).ToListAsync();
         }
 
@@ -70,7 +70,7 @@ namespace WebSiteAPI.Data.Repositories.Implementation
         public async Task<List<Job>> GetJobByIndustryId( Guid Id)
         {
             var result = await _context.Industries.FirstOrDefaultAsync(x => x.Id == Id);
-            var result2 = _context.Jobs.Where(x => x.IndustryId == Id);
+            //var result2 = _context.Jobs.Where(x => x.IndustryId == Id);
             var res = await _context.Jobs.Where(x => x.IndustryId == Id).ToListAsync();
             return res;
 

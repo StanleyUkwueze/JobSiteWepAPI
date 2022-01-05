@@ -9,7 +9,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebSiteAPI.Models;
 using WebSiteAPI.Models.Dtos;
+using WebSiteAPI.Services.Interfaces;
 using WepSiteAPI.Commons;
 
 namespace WebsiteAPI.Controllers
@@ -22,13 +24,15 @@ namespace WebsiteAPI.Controllers
         private readonly UserManager<AppUser> _userMgr;
         private readonly RoleManager<IdentityRole> _roleMgr;
         private readonly IMapper _mapper;
+        private readonly INotificationService _notification;
 
-        public UserController(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper)
+        public UserController(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper, INotificationService notification)
         {
             _context = context;
             _userMgr = userManager;
             _roleMgr = roleManager;
             _mapper = mapper;
+            _notification = notification;
         }
 
         [HttpPost("Add-User")]
@@ -77,9 +81,15 @@ namespace WebsiteAPI.Controllers
             }
 
             var token = await _userMgr.GenerateEmailConfirmationTokenAsync(user);
-            var url = Url.Action("ConfrimEmail", "User", new { Email = user.Email, Token = token }, Request.Scheme);  
+            var url = Url.Action("ConfrimEmail", "User", new { Email = user.Email, Token = token }, Request.Scheme);
             //work remains
 
+            string confirmEmailMessage = $"<p>Hello! {user.FirstName},<p>" + 
+                $"<p>Before you can login, you need to verify your email using the link: " +
+                $"<a href = '{url}'> Verify email <a> <p>";
+
+            var message = new Message(new List<EmailConfiguration> { new EmailConfiguration { DisplayName = user.FirstName, From = "no-reoply@gmail.com", Address = user.Email }}, "Email confirmation", confirmEmailMessage);
+            await _notification.SendEmailAsync(message);
             // map data to dto
             //var details = _mapper.Map<RegisterSuccessDto>(user);
             var details = new RegisterSuccessDto
@@ -129,6 +139,7 @@ namespace WebsiteAPI.Controllers
             var UserToReturn = new UserToReturnDto();
             //var user = await _userService.GetUser(email);
             var user = await _userMgr.FindByEmailAsync(email);
+           
             if (user != null)
             {
                 UserToReturn = new UserToReturnDto
@@ -154,7 +165,7 @@ namespace WebsiteAPI.Controllers
         public IActionResult GetUsers(int pageNumber, int pageSize)
         {
             var listOfUsers = new List<UserToReturnDto>();
-            var users =  _userMgr.Users.ToList();
+            var users =   _userMgr.Users.ToList();
             if(users != null)
             {
                 var pagedList = PagedList<AppUser>.Paginate(users, pageNumber, pageSize);
@@ -176,6 +187,18 @@ namespace WebsiteAPI.Controllers
                 var res = Util.BuildResponse<List<UserToReturnDto>>(false, "No results found!", ModelState, null);
                 return NotFound(res);
             }
+        }
+
+        [HttpDelete("delete-user/email")]
+        public async Task<IActionResult> DeleteUser(string email)
+        {
+            var user = await _userMgr.FindByEmailAsync(email);
+            if(user != null)
+            {
+             var res =  await _userMgr.DeleteAsync(user);
+                return Ok(res);
+            }
+            return null;
         }
 
     }

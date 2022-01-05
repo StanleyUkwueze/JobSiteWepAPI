@@ -26,17 +26,7 @@ namespace WebsiteAPI.Controllers
         [HttpPost("add-Resume")]
         public async Task<IActionResult> AddResume([FromForm] ResumeUploadDto model, string userId)
         {
-            //check if user logged is the one making the changes - only works for system using Auth tokens
-            //ClaimsPrincipal currentUser = this.User;
-            //var currentUserId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
-            //if (!userId.Equals(currentUserId))
-            //{
-            //    ModelState.AddModelError("Denied", $"You are not allowed to upload resume for another user");
-            //    var result2 = Util.BuildResponse<string>(false, "Access denied!", ModelState, "");
-            //    return BadRequest(result2);
-            //}
-
-            var file = model.Resume;
+          var file = model.Resume;
 
             if (file.Length > 0)
             {

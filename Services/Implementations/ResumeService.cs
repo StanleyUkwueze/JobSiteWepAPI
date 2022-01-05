@@ -70,5 +70,14 @@ namespace WebSiteAPI.Services.Implementations
             }
             return new Tuple<bool, ResumeUploadDto>(false, model);
         }
+
+        public async Task<List<Resume>> GetUserResumesAsync(string userId)
+        {
+            var res = await _resumeRepo.GetResumesByUserId(userId);
+            if (res != null)
+                return res;
+
+            return null;
+        }
     }
 }
