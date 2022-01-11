@@ -29,13 +29,16 @@ namespace WebSiteAPI.Services.Implementations
         public async Task<LoginCredDto> Login(string email, string password, bool rememberMe)
         {
             var user = await _userMgr.FindByEmailAsync(email);
-            var res = await _signMgr.PasswordSignInAsync(user, password, rememberMe, false);
-
-            if (!res.Succeeded)
+            if(user == null)
             {
                 return new LoginCredDto { Status = false };
             }
+            var res = await _signMgr.PasswordSignInAsync(user, password, rememberMe, false);
 
+            if (res == null)
+            {
+                return new LoginCredDto { Status = false };
+            }
             //get jwt token
 
             var userRoles = await _userMgr.GetRolesAsync(user);

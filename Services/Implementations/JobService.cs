@@ -45,7 +45,8 @@ namespace WebSiteAPI.Services.Implementations
                 IndustryId = model.IndustryId,
                 CategoryId = model.CategoryId,
                 Company = model.Company,
-               
+                JobValidDays = model.JobValidDays
+
             };
 
             var res = await _jobRepo.Add(job);

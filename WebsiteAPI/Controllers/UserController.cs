@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Commons.Helper;
 using Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -133,6 +134,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("Get-User/email")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUser(string email)
         {
             // map data from db to dto to reshape it and remove null fields
@@ -162,6 +164,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("Get-Users")]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetUsers(int pageNumber, int pageSize)
         {
             var listOfUsers = new List<UserToReturnDto>();
@@ -190,6 +193,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpDelete("delete-user/email")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUser(string email)
         {
             var user = await _userMgr.FindByEmailAsync(email);

@@ -1,4 +1,5 @@
 ﻿using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,6 +25,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpPost("add-Resume")]
+        [Authorize(Roles = "Applicant")]
         public async Task<IActionResult> AddResume([FromForm] ResumeUploadDto model, string userId)
         {
           var file = model.Resume;

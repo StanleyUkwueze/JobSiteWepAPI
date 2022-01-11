@@ -16,6 +16,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
@@ -26,7 +27,6 @@ namespace WebsiteAPI.Controllers
             _jobService = jobService;
             _mapper = mapper;
         }
-
         [HttpGet("Find-Job-by-Id/{Id}")]
         public async Task<IActionResult> FindJobById(Guid Id)
         {
@@ -65,21 +65,19 @@ namespace WebsiteAPI.Controllers
             }
          
         }
-
         [HttpGet("Get-Job-By-Industry-Name/Indname")]
+        //[Authorize(Roles = "Applicant")]
         public async Task<IActionResult> GetJobByIndustryName(string IndName)
         {
             var job = await _jobService.GetJobByIndustryName(IndName);
             return Ok(job);
         }
-
         [HttpGet("Get-Job-By-Category/{CatName}")]
         public async Task<IActionResult> GetJobByCategoryName(string CatName)
         {
             var job = await _jobService.GetJobByCategoryName(CatName);
             return Ok(job);
         }
-
         [HttpGet("Get-Job-By-Nature/{jobnature}")]
         public async Task<IActionResult> GetJobByNature(string jobnature)
         {
@@ -93,7 +91,6 @@ namespace WebsiteAPI.Controllers
             var job = await _jobService.GetJobBySalary(salary); 
             return Ok(job);
         }
-
         [HttpGet("Get-Job-By-Location/LocatioName")]
         public async Task<IActionResult> GetJobByLocation(string location)
         {

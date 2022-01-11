@@ -295,6 +295,9 @@ namespace WebSiteAPI.Data.Migrations
                     b.Property<Guid>("JobNatureId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("JobValidDays")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("LocationId")
                         .HasColumnType("uniqueidentifier");
 
@@ -391,10 +394,7 @@ namespace WebSiteAPI.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AppUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AppUserId1")
+                    b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DateCreated")
@@ -408,7 +408,7 @@ namespace WebSiteAPI.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId1");
+                    b.HasIndex("AppUserId");
 
                     b.HasIndex("JobId");
 
@@ -503,11 +503,11 @@ namespace WebSiteAPI.Data.Migrations
             modelBuilder.Entity("WebSiteAPI.Models.JobApplication", b =>
                 {
                     b.HasOne("Models.AppUser", "AppUser")
-                        .WithMany()
-                        .HasForeignKey("AppUserId1");
+                        .WithMany("AppliedJobs")
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("Models.Job", "Job")
-                        .WithMany()
+                        .WithMany("AppliedJobs")
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

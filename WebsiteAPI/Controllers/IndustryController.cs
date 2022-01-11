@@ -12,7 +12,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class IndustryController : ControllerBase
     {
         private readonly IIndustryService _industryService;

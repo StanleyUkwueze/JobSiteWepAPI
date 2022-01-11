@@ -12,7 +12,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -37,7 +37,6 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpDelete("Delete-Category-by-Id/Id")]
-
         public async Task<IActionResult> DeleteCategoryById(Guid Id)
         {
             var res = await _categoryService.DeleteCategoryById(Id);

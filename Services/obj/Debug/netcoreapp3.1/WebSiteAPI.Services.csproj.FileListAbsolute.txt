@@ -15,4 +15,3 @@ C:\Users\decag\source\repos\WebsiteAPI\Services\obj\Debug\netcoreapp3.1\WebSiteA
 C:\Users\decag\source\repos\WebsiteAPI\Services\obj\Debug\netcoreapp3.1\WebSiteAPI.Services.pdb
 C:\Users\decag\source\repos\WebsiteAPI\Services\bin\Debug\netcoreapp3.1\Commons.dll
 C:\Users\decag\source\repos\WebsiteAPI\Services\bin\Debug\netcoreapp3.1\Commons.pdb
-C:\Users\decag\source\repos\WebsiteAPI\Services\obj\Debug\netcoreapp3.1\WebSiteAPI.Services.csproj.CopyComplete

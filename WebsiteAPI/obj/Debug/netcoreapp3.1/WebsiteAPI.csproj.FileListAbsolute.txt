@@ -19,8 +19,6 @@ C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\Websit
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\staticwebassets\WebsiteAPI.StaticWebAssets.Manifest.cache
-C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\staticwebassets\WebsiteAPI.StaticWebAssets.xml
-C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebsiteAPI.styles.css
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.RazorTargetAssemblyInfo.cache
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.pdb
@@ -112,3 +110,7 @@ C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\MailKi
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
 C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\Moq.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\bin\Debug\netcoreapp3.1\nunit.framework.dll
+C:\Users\decag\source\repos\WebsiteAPI\WebsiteAPI\obj\Debug\netcoreapp3.1\WebsiteAPI.csproj.CopyComplete

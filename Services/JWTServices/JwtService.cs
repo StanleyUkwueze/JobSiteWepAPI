@@ -13,12 +13,10 @@ namespace Services.JWTServices
    public class JwtService :IJwtService
     {
         private readonly IConfiguration _config;
-
         public JwtService(IConfiguration configuration)
         {
             _config = configuration; 
         }
-
         public string GenerateJWTToken(AppUser user, List<string> userRoles)
         {
             //Adding user claims
@@ -27,14 +25,11 @@ namespace Services.JWTServices
                new Claim(ClaimTypes.NameIdentifier, user.Id),
                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
             };
-
             foreach(var role in userRoles)
             {
                 Claims.Add(new Claim(ClaimTypes.Role, role));
             }
-
             //Set up system security
-
             var SymmetricSecurity = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("JWT:Key").Value));
 
             var securityTokenDescriptor = new SecurityTokenDescriptor
@@ -43,9 +38,7 @@ namespace Services.JWTServices
                 Expires = DateTime.Today.AddDays(1),
                 SigningCredentials = new SigningCredentials(SymmetricSecurity, SecurityAlgorithms.HmacSha256)
             };
-
             //Create token
-
             var SecurityTokenHandler = new JwtSecurityTokenHandler();
 
             var token =  SecurityTokenHandler.CreateToken(securityTokenDescriptor);
