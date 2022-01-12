@@ -35,7 +35,7 @@ namespace WebSiteAPI.Services.Implementations
             }
             var res = await _signMgr.PasswordSignInAsync(user, password, rememberMe, false);
 
-            if (res == null)
+            if (!res.Succeeded)
             {
                 return new LoginCredDto { Status = false };
             }

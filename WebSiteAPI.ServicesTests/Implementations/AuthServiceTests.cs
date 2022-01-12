@@ -46,6 +46,8 @@ namespace WebSiteAPI.Services.Implementations.Tests
 
             _authService = new AuthService(_userManager.Object, _signInManager.Object, _jwtservice.Object);
         }
+
+        //Valid case Test
         [TestMethod()]
         public async Task LoginTestWithCorrectCredentials()
         {
@@ -53,6 +55,7 @@ namespace WebSiteAPI.Services.Implementations.Tests
             Assert.IsTrue(res.Status);
         }
 
+        //InValid case Test
         [TestMethod()]
         public async Task LoginTestWithWrongCredentials()
         {
@@ -60,6 +63,7 @@ namespace WebSiteAPI.Services.Implementations.Tests
             Assert.IsFalse(res.Status);
         }
 
+        //InValid case Test
         [TestMethod]
         public async Task UserEmailTest()
         {
@@ -67,6 +71,7 @@ namespace WebSiteAPI.Services.Implementations.Tests
             Assert.IsFalse(res.Status);
         }
 
+        //InValid case Test
         [TestMethod]
         public async Task UserPasswordTest()
         {

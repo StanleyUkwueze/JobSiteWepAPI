@@ -10,3 +10,4 @@ C:\Users\decag\source\repos\WebsiteAPI\Commons\obj\Debug\netcoreapp3.1\Commons.A
 C:\Users\decag\source\repos\WebsiteAPI\Commons\obj\Debug\netcoreapp3.1\Commons.csproj.CoreCompileInputs.cache
 C:\Users\decag\source\repos\WebsiteAPI\Commons\obj\Debug\netcoreapp3.1\Commons.dll
 C:\Users\decag\source\repos\WebsiteAPI\Commons\obj\Debug\netcoreapp3.1\Commons.pdb
+C:\Users\decag\source\repos\WebsiteAPI\Commons\obj\Debug\netcoreapp3.1\Commons.csproj.CopyComplete

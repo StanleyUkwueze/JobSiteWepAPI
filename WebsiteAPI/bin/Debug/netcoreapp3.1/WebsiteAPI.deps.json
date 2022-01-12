@@ -40,6 +40,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.18",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.22",
           "Microsoft.OpenApi": "1.2.3",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.11.1",
           "Swashbuckle.AspNetCore.SwaggerGen": "5.4.1",
           "Swashbuckle.AspNetCore.SwaggerUI": "3.0.0",
           "WebSiteAPI.Data": "1.0.0",
@@ -1553,6 +1554,7 @@
           "lib/net45/Microsoft.Owin.Security.OAuth.dll": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {},
       "Microsoft.Web.Infrastructure/1.0.0": {
         "runtime": {
           "lib/net40/Microsoft.Web.Infrastructure.dll": {
@@ -5256,6 +5258,13 @@
       "sha512": "sha512-jR/LoeV02Cne9IV6fG4L9KR+uofPLokq6sxGy4bBDxLAAmZ35y0H/NiV6riqXSee6PypNAcJzTytJpYb0xK6Hw==",
       "path": "microsoft.owin.security.oauth/2.1.0",
       "hashPath": "microsoft.owin.security.oauth.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1jHxWlSi6/ryWODk6SUjsZPHk/BdsucxqhIi1szEzwc84e8nvZWF45qRXcT2gWPISJ3Ybbyg2LsNG6yX8r7VuA==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.11.1",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
     },
     "Microsoft.Web.Infrastructure/1.0.0": {
       "type": "package",

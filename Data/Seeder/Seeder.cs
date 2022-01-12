@@ -39,8 +39,9 @@ namespace Data.Seeder
                         await _roleMgr.CreateAsync(new IdentityRole(role));
                     }
                 }
-               
-                var data = File.ReadAllText(@"C:\Users\decag\source\repos\WebsiteAPI\Data\Seeder\Seeder.json");
+                var dir = Directory.GetCurrentDirectory();
+               // var path = Path.
+                var data = File.ReadAllText(dir+"/Seeder.json");
                 var listOfUsers = JsonConvert.DeserializeObject<List<AppUser>>(data);
                 if (!_userMgr.Users.Any())
                 {

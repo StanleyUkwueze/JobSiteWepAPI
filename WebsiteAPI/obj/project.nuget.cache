@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "glUAru2czIigSL5H7qB3QpVztqxDtq4oV6LP7K0PWkXvemRj15B6gIAYGGIZNUAUd8kpTdYMxwPDoK2D1FVQRw==",
+  "dgSpecHash": "GqPiOBLVh60idRqarpnHhpruqskGlmOWi2EZ7UYc1UMzRNCKYoidPqJr9bBGMZHSf7WIoM/BRPKXs3/E5Mi6Lw==",
   "success": true,
   "projectFilePath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\WebsiteAPI\\WebsiteAPI.csproj",
   "expectedPackageFiles": [
@@ -115,6 +115,7 @@
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.owin.security\\2.1.0\\microsoft.owin.security.2.1.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.owin.security.cookies\\2.1.0\\microsoft.owin.security.cookies.2.1.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.owin.security.oauth\\2.1.0\\microsoft.owin.security.oauth.2.1.0.nupkg.sha512",
+    "C:\\Users\\decag\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.11.1\\microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.web.infrastructure\\1.0.0\\microsoft.web.infrastructure.1.0.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\decag\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",

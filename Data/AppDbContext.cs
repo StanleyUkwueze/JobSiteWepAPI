@@ -25,7 +25,6 @@ namespace Data
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<JobApplication> JobApplications { get; set; }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

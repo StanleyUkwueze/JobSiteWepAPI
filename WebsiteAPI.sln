@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSiteAPI.Services", "Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{FCE5505C-3963-4C07-8E7C-1FD37D4BD885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSiteAPI.ServicesTests", "WebSiteAPI.ServicesTests\WebSiteAPI.ServicesTests.csproj", "{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSiteAPI.ServicesTests", "WebSiteAPI.ServicesTests\WebSiteAPI.ServicesTests.csproj", "{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6729DCE8-D7FF-49BD-B066-CFD4FEE0F966}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile.txt = Dockerfile.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

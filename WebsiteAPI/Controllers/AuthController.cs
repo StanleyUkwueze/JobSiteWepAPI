@@ -1,12 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Commons.Helper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Models;
 using Services.JWTServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using WebSiteAPI.Models;
 using WebSiteAPI.Models.Dtos;
 using WebSiteAPI.Services.Interfaces;
 using WepSiteAPI.Commons;
@@ -20,12 +24,15 @@ namespace WebsiteAPI.Controllers
         private readonly IAuthService _authService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IJwtService _jwtService;
+        private readonly INotificationService _notify;
 
-        public AuthController(IAuthService authService, UserManager<AppUser> userManager, IJwtService jwtService )
+        public AuthController(IAuthService authService, UserManager<AppUser> userManager, 
+            IJwtService jwtService, INotificationService notificationService )
         {
             _authService = authService;
             _userManager = userManager;
             _jwtService = jwtService;
+            _notify = notificationService;
         }
         
         [HttpPost("Login")]
@@ -83,6 +90,50 @@ namespace WebsiteAPI.Controllers
             return Ok(Util.BuildResponse<object>(true, "Email confirmation suceeded!", null, null));
         }
 
+        [HttpPost("ForgotPasswored")]
+        public async Task<IActionResult> ForgotPassord(ForgotPasswordDto model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if(user == null)
+            {
+                ModelState.AddModelError("Invalid", "No matching user found");
+                return BadRequest(Util.BuildResponse<object>(false, "No matching user found!", ModelState, null));
+            }
+            var Token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var ResetPasswordLink = Url.Action("ResetPassword", "Auth",
+                new { email = user.Email, token = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(Token)) }, Request.Scheme);
+
+            string ResetPasswordMessage = $"<p>Hello! {user.FirstName},<p>" +
+               $"<p>Please, click the following link to reset your password: " +
+               $"<a href = '{ResetPasswordLink}'> Reset Password<a> <p>";
+
+            var message = new Message(new List<EmailConfiguration> { new EmailConfiguration { DisplayName = user.FirstName, From = "no-reoply@gmail.com", Address = user.Email } }, "Email confirmation", ResetPasswordMessage);
+            await _notify.SendEmailAsync(message);
+
+            return Ok(Util.BuildResponse<Object>(true, "Successfull", ModelState, new { url = ResetPasswordLink}));
+        }
+
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPassworedDto model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                var result = await _userManager.ResetPasswordAsync(user, Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(model.Token)), model.Password);
+                if (!result.Succeeded)
+                {
+                    foreach(var err in result.Errors)
+                    {
+                        ModelState.AddModelError("Failed", err.Description);
+                    }
+                    return Ok(Util.BuildResponse<object>(false, "Failed to reset password for the user", ModelState, null));
+                }
+               
+            }
+            return Ok(Util.BuildResponse<object>(true, "Successfully reset password for the user", ModelState, ""));
+
+        }
         [HttpGet("Gen-JWT")]
         public  IActionResult GenerateToken()
         {

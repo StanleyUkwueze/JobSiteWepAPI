@@ -27,7 +27,8 @@ namespace WebsiteAPI.Controllers
         private readonly IMapper _mapper;
         private readonly INotificationService _notification;
 
-        public UserController(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IMapper mapper, INotificationService notification)
+        public UserController(AppDbContext context, UserManager<AppUser> userManager,
+            RoleManager<IdentityRole> roleManager, IMapper mapper, INotificationService notification)
         {
             _context = context;
             _userMgr = userManager;
@@ -82,7 +83,7 @@ namespace WebsiteAPI.Controllers
             }
 
             var token = await _userMgr.GenerateEmailConfirmationTokenAsync(user);
-            var url = Url.Action("ConfrimEmail", "User", new { Email = user.Email, Token = token }, Request.Scheme);
+            var url = Url.Action("ConfirmEmail", "User", new { Email = user.Email, Token = token }, Request.Scheme);
             //work remains
 
             string confirmEmailMessage = $"<p>Hello! {user.FirstName},<p>" + 
@@ -105,7 +106,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("confirm-email")]
-        public async Task<IActionResult> ConfrimEmail(string email, string token)
+        public async Task<IActionResult> ConfirmEmail(string email, string token)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(token))
             {
@@ -134,15 +135,14 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("Get-User/email")]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetUser(string email)
         {
             // map data from db to dto to reshape it and remove null fields
             var UserToReturn = new UserToReturnDto();
             //var user = await _userService.GetUser(email);
             var user = await _userMgr.FindByEmailAsync(email);
-           
-            if (user != null)
+             if (user != null)
             {
                 UserToReturn = new UserToReturnDto
                 {
