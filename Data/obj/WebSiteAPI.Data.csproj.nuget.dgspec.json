@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj": {}
+    "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj": {
+    "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj",
+        "projectUniqueName": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj",
         "projectName": "WebSiteAPI.Data",
-        "projectPath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj",
+        "projectPath": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Data\\WebSiteAPI.Data.csproj",
         "packagesPath": "C:\\Users\\decag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Data\\obj\\",
+        "outputPath": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -32,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj": {
-                "projectPath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj"
+              "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj": {
+                "projectPath": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj"
               }
             }
           }
@@ -59,6 +59,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -80,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj": {
+    "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj",
+        "projectUniqueName": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj",
         "projectName": "WebSiteAPI.Models",
-        "projectPath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj",
+        "projectPath": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\WebSiteAPI.Models.csproj",
         "packagesPath": "C:\\Users\\decag\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\decag\\source\\repos\\WebsiteAPI\\Models\\obj\\",
+        "outputPath": "C:\\Users\\decag\\Desktop\\week-9-StanleyUkwueze\\WebsiteAPIsqlServer\\WebsiteAPI\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
@@ -123,6 +127,10 @@
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",

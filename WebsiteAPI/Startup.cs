@@ -47,7 +47,7 @@ namespace WebsiteAPI
         {
             services.AddControllers();
 
-            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContextPool<AppDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("Default")));
             services.AddIdentity<AppUser, IdentityRole>(options => {
                 options.SignIn.RequireConfirmedEmail = true;
                 //others....
@@ -159,7 +159,9 @@ namespace WebsiteAPI
             {
                 endpoints.MapControllers();
             });
+
             seeder.SeedMe().Wait();
+
             app.UseSwagger();
             app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"));
         }

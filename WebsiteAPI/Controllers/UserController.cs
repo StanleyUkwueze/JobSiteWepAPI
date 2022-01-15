@@ -61,7 +61,7 @@ namespace WebsiteAPI.Controllers
                 UserName = model.Email
             };
             var response = await _userMgr.CreateAsync(user, model.Password);
-
+            user.IsActive = true;
             if (!response.Succeeded)
             {
                 foreach (var err in response.Errors)
@@ -101,8 +101,6 @@ namespace WebsiteAPI.Controllers
                 Email = user.Email
             };   
             return Ok(Util.BuildResponse(true, "New user added!", null, new { details, ConfimationLink = url }));
-
-
         }
 
         [HttpGet("confirm-email")]

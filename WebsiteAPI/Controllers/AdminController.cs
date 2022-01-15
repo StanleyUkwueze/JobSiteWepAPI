@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebSiteAPI.Models.Dtos;
 using WebSiteAPI.Services.Interfaces;
+using WepSiteAPI.Commons;
 
 namespace WebsiteAPI.Controllers
 {
@@ -19,12 +22,18 @@ namespace WebsiteAPI.Controllers
         private readonly IJobService _jobService;
         private readonly ILocationservice _locationservice;
         private readonly object _industryService;
+        private readonly UserManager<AppUser> _userMgr;
+        private readonly SignInManager<AppUser> _signMgr;
 
-        public AdminController(IJobService jobService, ILocationservice locationservice, IIndustryService industryService)
+        public AdminController(IJobService jobService, ILocationservice locationservice, 
+            IIndustryService industryService, UserManager<AppUser> userManager, 
+            SignInManager<AppUser> signInManager)
         {
             _jobService = jobService;
             _locationservice = locationservice;
             _industryService = industryService;
+            _userMgr = userManager;
+            _signMgr = signInManager;
         }
 
         [HttpPost("Add-Job")]
@@ -57,14 +66,39 @@ namespace WebsiteAPI.Controllers
             return Ok(result);
         }
 
-  //     "title": "Driver",
-  //"description": "Personal Drver",
-  //"minimumSalary": 100000,
-  //"maximumSalary": 300000,
-  //"industryId": "abb2e9f8-6b83-4305-8c5a-78197e0e6d04",
-  //"categoryId": "a58606fc-145f-48bc-91a8-66706c4d9b21",
-  //"locationId": "0479ab70-b895-442c-9d94-cb5421913c68",
-  //"jobNatureId": "715c5d70-2913-4b5c-9e7c-9305a269caa1",
-  //"company": "Private"
+        [HttpPut("Activate-User")]
+        public async Task<IActionResult> ActivateUser(string UserEmail)
+        {
+            var user = await _userMgr.FindByEmailAsync(UserEmail);
+            //var res = _signMgr.SignInAsync(user, false);
+            if(user == null)
+            {
+                ModelState.AddModelError("Invalid", "No user with the provided email");
+                Util.BuildResponse<string>(false, "Invalid user email", ModelState, null);
+            }
+            if (user.IsActive != true) user.IsActive = true;
+           await _userMgr.UpdateAsync(user);
+                  
+
+            return Ok(Util.BuildResponse<object>(true, "User Successfully activated", ModelState, null));
+
+        }
+
+        [HttpPut("Deactivate-User")]
+         public async Task<IActionResult> DeactivateUser(string email)
+        {
+            var user = await _userMgr.FindByEmailAsync(email);
+            if (user == null)
+            {
+                ModelState.AddModelError("Invalid", "No user with the provided email");
+                Util.BuildResponse<string>(false, "Invalid user email", ModelState, null);
+            }
+            if (user.IsActive != false) user.IsActive = false;
+
+            return Ok(Util.BuildResponse<object>(true, "User Successfully Deactivated", ModelState, null));
+
+        }
+
+  
     }
 }

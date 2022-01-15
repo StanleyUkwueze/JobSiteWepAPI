@@ -17,7 +17,7 @@ namespace WebSiteAPI.Services.Implementations
         private readonly UserManager<AppUser> _userMgr;
         private readonly SignInManager<AppUser> _signMgr;
         private readonly IJwtService _jwtService;
-        private readonly IEmailService _emailService;
+       
 
         public AuthService(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtService jwtService)
         {
@@ -35,7 +35,7 @@ namespace WebSiteAPI.Services.Implementations
             }
             var res = await _signMgr.PasswordSignInAsync(user, password, rememberMe, false);
 
-            if (!res.Succeeded)
+            if (res == null)
             {
                 return new LoginCredDto { Status = false };
             }

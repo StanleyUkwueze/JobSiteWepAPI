@@ -13,12 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSiteAPI.Services", "Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Commons", "Commons\Commons.csproj", "{FCE5505C-3963-4C07-8E7C-1FD37D4BD885}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSiteAPI.ServicesTests", "WebSiteAPI.ServicesTests\WebSiteAPI.ServicesTests.csproj", "{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6729DCE8-D7FF-49BD-B066-CFD4FEE0F966}"
-	ProjectSection(SolutionItems) = preProject
-		Dockerfile.txt = Dockerfile.txt
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServiceProject", "AuthServiceProject\AuthServiceProject.csproj", "{E12D22AD-2D4C-4097-9D27-5FDF7CD2DA9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +41,10 @@ Global
 		{FCE5505C-3963-4C07-8E7C-1FD37D4BD885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCE5505C-3963-4C07-8E7C-1FD37D4BD885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCE5505C-3963-4C07-8E7C-1FD37D4BD885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E38F5FB-C3CB-4C6C-B31C-ECB6D6BD9345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12D22AD-2D4C-4097-9D27-5FDF7CD2DA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12D22AD-2D4C-4097-9D27-5FDF7CD2DA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12D22AD-2D4C-4097-9D27-5FDF7CD2DA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12D22AD-2D4C-4097-9D27-5FDF7CD2DA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

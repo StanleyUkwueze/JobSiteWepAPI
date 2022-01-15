@@ -39,10 +39,14 @@ namespace Data.Seeder
                         await _roleMgr.CreateAsync(new IdentityRole(role));
                     }
                 }
+
                 var dir = Directory.GetCurrentDirectory();
-               // var path = Path.
-                var data = File.ReadAllText(dir+"/Seeder.json");
+                var dirList = dir.Split("\\").ToList();
+                dirList.RemoveAt(dirList.Count - 1);
+                dir = string.Join("\\", dirList);
+                 var data = File.ReadAllText($"{dir}/Data/Seeder/Seeder.json");   
                 var listOfUsers = JsonConvert.DeserializeObject<List<AppUser>>(data);
+           
                 if (!_userMgr.Users.Any())
                 {
                   var  role = "";

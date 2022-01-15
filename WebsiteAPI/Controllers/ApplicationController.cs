@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace WebsiteAPI.Controllers
     {
         private readonly IApplicationservice _applicationService;
         private readonly IResumeService _resumeService;
-        private readonly UserManager<IdentityUser> _userMgr;
+        private readonly UserManager<AppUser> _userMgr;
 
-        public ApplicationController(IApplicationservice applicationService, IResumeService resumeService, UserManager<IdentityUser> userManager)
+        public ApplicationController(IApplicationservice applicationService, IResumeService resumeService, UserManager<AppUser> userManager)
         {
             _applicationService = applicationService;
             _resumeService = resumeService;
@@ -31,7 +32,7 @@ namespace WebsiteAPI.Controllers
 
         [HttpPost("Apply-for-Job")]
         [Authorize(Roles = "Applicant")]
-        public async Task<IActionResult> ApplyForJob(string userId, string JobId)
+        public async Task<IActionResult> ApplyForJob(string userId, Guid JobId)
         {
             ClaimsPrincipal currentUser = this.User;
             var curentuserId = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
@@ -42,7 +43,7 @@ namespace WebsiteAPI.Controllers
                 return BadRequest(result2);
             }
 
-            var res = await _resumeService.GetUserResumesAsync(userId);
+            var res = await _applicationService.ApplyForJob(userId, JobId);
             if (res == null)
             {
                 ModelState.AddModelError("Failed", $"You do not have your resume uploaded");
@@ -99,10 +100,7 @@ namespace WebsiteAPI.Controllers
                     MetaData = pagedList.MetaData,
                     Data = pagedList.Data
                 };
-                    
-
-                
-                ModelState.AddModelError("Empty", $"None has applied for this job");
+                ModelState.AddModelError("Empty", "None has applied for this job");
                 var result2 = Util.BuildResponse<string>(false, "Empty application record!", ModelState, "");
                 return BadRequest(result2);
             }
