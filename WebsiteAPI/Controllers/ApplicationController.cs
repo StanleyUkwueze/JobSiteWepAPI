@@ -84,7 +84,7 @@ namespace WebsiteAPI.Controllers
                 MetaData = pagedList.MetaData,
                 Data = pagedList.Data
             };
-            return Ok(Util.BuildResponse<Object>(true, "Jobsapplied gotten successfully", ModelState, jobs));
+            return Ok(Util.BuildResponse<Object>(true, "Jobsapplied gotten successfully", ModelState, response));
         }
 
         [HttpGet("User-Applications")]

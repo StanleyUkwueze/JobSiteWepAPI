@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WebSiteAPI.Models.Dtos
 {
-   public class AddUserDto
+   public class AddJobDto
     {
         [Required]
        

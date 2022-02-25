@@ -25,7 +25,8 @@ namespace Data.Seeder
             _roleMgr = roleManager;
         }
 
-        public async Task SeedMe()
+       
+        public async Task SeedMe(string envName)
         {
             try
             {
@@ -40,11 +41,19 @@ namespace Data.Seeder
                     }
                 }
 
+                var path = "/app/Data/Seeder/Seeder.json";
+
                 var dir = Directory.GetCurrentDirectory();
                 var dirList = dir.Split("\\").ToList();
                 dirList.RemoveAt(dirList.Count - 1);
                 dir = string.Join("\\", dirList);
-                 var data = File.ReadAllText($"{dir}/Data/Seeder/Seeder.json");   
+                if (envName.ToString().Equals("Development"))
+                {
+                    path = $"{dir}\\Data\\Seeder\\Seeder.json";
+                }
+
+                 var data = File.ReadAllText(path);
+
                 var listOfUsers = JsonConvert.DeserializeObject<List<AppUser>>(data);
            
                 if (!_userMgr.Users.Any())

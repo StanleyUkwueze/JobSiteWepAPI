@@ -29,17 +29,17 @@ namespace WebsiteAPI.Controllers
             return Ok(res);
         }
 
-        [HttpPut("Update-Category-By-id/Id")]
-        public async Task<IActionResult> UpdateCaregoryById(Guid Id, CategoryDto cat)
+        [HttpPut("Update-Category-By-id/id")]
+        public async Task<IActionResult> UpdateCaregoryById(Guid id, CategoryDto cat)
         {
-            var res = await _categoryService.UpdateCategoryById(Id, cat);
+            var res = await _categoryService.UpdateCategoryById(id, cat);
             return Ok(res);
         }
 
-        [HttpDelete("Delete-Category-by-Id/Id")]
-        public async Task<IActionResult> DeleteCategoryById(Guid Id)
+        [HttpDelete("Delete-Category-by-Id/id")]
+        public async Task<IActionResult> DeleteCategoryById(Guid id)
         {
-            var res = await _categoryService.DeleteCategoryById(Id);
+            var res = await _categoryService.DeleteCategoryById(id);
             return Ok(res);
         }
     }

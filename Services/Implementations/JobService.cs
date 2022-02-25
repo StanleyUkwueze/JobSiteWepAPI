@@ -243,7 +243,7 @@ namespace WebSiteAPI.Services.Implementations
                 jobToEdit.Company = job.Company;
 
                 var res = await _jobRepo.Edit(jobToEdit);
-                if (res)
+                if(res)
                     return jobToEdit;
             }
             return null;

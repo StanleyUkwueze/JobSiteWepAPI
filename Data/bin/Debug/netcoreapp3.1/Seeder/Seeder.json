@@ -1,5 +1,16 @@
 [
   {
+    "Lastname": "Stanley",
+    "FirstName": "Ukwueze",
+    "Email": "stanleyjekwu4inec@gmail.com",
+    "Gender": "male",
+    "PhoneNumber": "+234 (810) 304 3961",
+    "EmailConfirmed": true,
+    "IsActive": true,
+    "CreatedAt": "2021-01-03T03:04:58 -01:00",
+    "ModifiedAt": "2017-02-14T06:8:17 -01:00"
+  },
+  {
     "Lastname": "Willis",
     "FirstName": "Curtis",
     "Email": "curtiswillis@micronaut.com",

@@ -44,10 +44,6 @@ namespace WebSiteAPI.Services.Implementations
                     Success = false, Report = "Job Advert is already closed"
                 };
             }
-            //if (DateTime.Parse(checkJob.Deadline) < DateTime.Now)
-            //{
-            //    return new ApplicationResponseDto { Success = false, Report = "Job Advert is already closed" };
-            //}
             var checkCv = _resumeUpload.GetResumesByUserId(userId);
             if (checkCv == null)
             {

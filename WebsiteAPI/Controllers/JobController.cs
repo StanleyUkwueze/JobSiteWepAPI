@@ -16,7 +16,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class JobController : ControllerBase
     {
         private readonly IJobService _jobService;
@@ -66,7 +66,7 @@ namespace WebsiteAPI.Controllers
          
         }
         [HttpGet("Get-Job-By-Industry-Name/Indname")]
-        //[Authorize(Roles = "Applicant")]
+      
         public async Task<IActionResult> GetJobByIndustryName(string IndName)
         {
             var job = await _jobService.GetJobByIndustryName(IndName);

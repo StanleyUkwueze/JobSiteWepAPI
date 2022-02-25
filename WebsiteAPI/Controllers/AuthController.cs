@@ -128,24 +128,9 @@ namespace WebsiteAPI.Controllers
                         ModelState.AddModelError("Failed", err.Description);
                     }
                     return Ok(Util.BuildResponse<object>(false, "Failed to reset password for the user", ModelState, null));
-                }
-               
+                }             
             }
             return Ok(Util.BuildResponse<object>(true, "Successfully reset password for the user", ModelState, ""));
-
-        }
-        [HttpGet("Gen-JWT")]
-        public  IActionResult GenerateToken()
-        {
-            var user = new AppUser
-            {
-               LastName = "stanley",
-               FirstName = "Jekwu"
-              
-            };
-            var roles = new List<string> { "Admin", "Applicant" };
-            var token = _jwtService.GenerateJWTToken(user, roles);
-            return Ok(token);
         }
     }
 }

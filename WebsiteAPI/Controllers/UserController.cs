@@ -19,6 +19,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+ 
     public class UserController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -38,7 +39,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpPost("Add-User")]
-        public async Task<IActionResult> AddUser(AddUserDto model)
+        public async Task<IActionResult> AddUser(AddJobDto model)
         {
            
             // if user already exist return early
@@ -133,8 +134,7 @@ namespace WebsiteAPI.Controllers
         }
 
         [HttpGet("Get-User/email")]
-       // [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> GetUser(string email)
+        public async Task<IActionResult> GetUser([FromRoute]string email)
         {
             // map data from db to dto to reshape it and remove null fields
             var UserToReturn = new UserToReturnDto();
@@ -161,8 +161,7 @@ namespace WebsiteAPI.Controllers
 
         }
 
-        [HttpGet("Get-Users")]
-        [Authorize(Roles = "Admin")]
+        [HttpGet("Get-Users")]      
         public IActionResult GetUsers(int pageNumber, int pageSize)
         {
             var listOfUsers = new List<UserToReturnDto>();

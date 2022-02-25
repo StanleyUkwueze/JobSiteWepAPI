@@ -19,10 +19,10 @@ namespace WebSiteAPI.Data.Repositories.Implementation
         {
             _context = context;
         }
-        public Task<bool> Add<T>(T entity)
+        public async Task<bool> Add<T>(T entity)
         {          
             _context.Add(entity);
-            return SaveChanges();
+            return await SaveChanges();
         }
         public Task<bool> Delete<T>(T entity)
         {

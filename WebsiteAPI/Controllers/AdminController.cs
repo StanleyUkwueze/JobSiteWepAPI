@@ -15,7 +15,7 @@ namespace WebsiteAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     //[Authorize]
     public class AdminController : ControllerBase
     {
@@ -70,7 +70,6 @@ namespace WebsiteAPI.Controllers
         public async Task<IActionResult> ActivateUser(string UserEmail)
         {
             var user = await _userMgr.FindByEmailAsync(UserEmail);
-            //var res = _signMgr.SignInAsync(user, false);
             if(user == null)
             {
                 ModelState.AddModelError("Invalid", "No user with the provided email");
@@ -78,10 +77,7 @@ namespace WebsiteAPI.Controllers
             }
             if (user.IsActive != true) user.IsActive = true;
            await _userMgr.UpdateAsync(user);
-                  
-
             return Ok(Util.BuildResponse<object>(true, "User Successfully activated", ModelState, null));
-
         }
 
         [HttpPut("Deactivate-User")]

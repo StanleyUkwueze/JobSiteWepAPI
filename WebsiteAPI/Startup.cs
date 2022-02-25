@@ -155,12 +155,15 @@ namespace WebsiteAPI
             app.UseAuthentication();
             app.UseAuthorization();
 
+
+            var envName = env.EnvironmentName;
+            seeder.SeedMe(envName).Wait();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            seeder.SeedMe().Wait();
+           
 
             app.UseSwagger();
             app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"));
